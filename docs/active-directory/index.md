@@ -37,35 +37,35 @@ permalink: /ad/
 
 Before starting to play with following exploits, it is a good idea to recover information about the domain you are going to attack as an unauthenticated user.
 
-- [First Lookup](./firstlookup.md)
+- [First Lookup](/ad/lookup/)
 
 ## Without an account
 
 First thing you want to achive to compromise a domain is to get an initial foothold. To do so, following attacks can be used to gain a domain joined account, either user or computer one. [Web attacks](../web/README.md) can also be a good entrypoint on an Active Directory domain.
 
 - [BlueKeep [CVE-2019-0708]](/windows/bluekeep/)
-- [Bruteforce](./bruteforce.md)
-- [EternalBlue [MS17-010]](../windows/eternalblue.md)
-- [NTLM Relay](./ntlmrelay.md)
-- [Password Spraying](./passwordspraying.md)
-- [Printer Abuse](./printer.md)
+- [Bruteforce](/ad/bruteforce/)
+- [EternalBlue [MS17-010]](/windows/eternalblue/)
+- [NTLM Relay](/ad/ntlmrelay/)
+- [Password Spraying](/ad/spraying)
+- [Printer Abuse](/ad/printer/)
 - [Zerologon [CVE-2020-1472]](/ad/zerologon/)
 
 ## Privilege escalation
 
-Once you get either a low privileged domain account or an access to a domain joined computer, you can perform following attacks to escalate your privileges locally on domain computers or on the domain itself. You should perform [Active Directory Enumeration](./enumeration.md) to get as much information as possible before starting to exploit.
+Once you get either a low privileged domain account or an access to a domain joined computer, you can perform following attacks to escalate your privileges locally on domain computers or on the domain itself. You should perform [Active Directory Enumeration](/ad/enumeration/) to get as much information as possible before starting to exploit.
 
-- [AS-REP Roasting](./asreproasting.md)
-- [Cached Credentials Extraction](./credentials.md)
-- [DCSync Attack](./dcsync.md)
-- [Kerberoasting](./kerberoasting.md)
-- [NoPac [CVE-2021-42278] & [CVE-2021-42287]](./nopac.md)
-- [PetitPotam [CVE-2022-26925]](./petitpotam.md)
-- [Pre Windows 2000 Compatibility Abuse](./compatibility.md)
-- [PrintNightmare [CVE-2021-1675]](./printnightmare.md)
-- [SeImpersonatePrivilege Abuse](../windows/seimpersonateprivilege.md)
-- [SYSVOL Enumeration](./sysvol.md)
+- [AS-REP Roasting](/ad/asreproasting/)
+- [Cached Credentials Extraction](/ad/credentials/)
+- [DCSync Attack](/ad/dcsync/)
+- [Kerberoasting](/ad/kerberoasting/)
+- [NoPac [CVE-2021-42278] & [CVE-2021-42287]](/ad/nopac/)
+- [PetitPotam [CVE-2022-26925]](/ad/petitpotam/)
+- [Pre Windows 2000 Compatibility Abuse](/ad/compatibility/)
+- [PrintNightmare [CVE-2021-1675]](/ad/printnightmare/)
+- [SeImpersonatePrivilege Abuse](/windows/seimpersonateprivilege/)
+- [SYSVOL Enumeration](/ad/sysvol/)
 
 ## Lateralization
 
-- [Net-NTLMv2 Relay](./netntlmv2relay.md)
+- [Net-NTLMv2 Relay](/ad/netntlmv2relay/)

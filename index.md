@@ -7,9 +7,8 @@ permalink: /
 
 # Ky4meru
 
-## Disclaimer
-
-**Cybercriminality is punished by law**. Use this wiki carefully and at your own risks.
+{: .warning }
+> **Cybercriminality is punished by law**. Use this wiki carefully and at your own risks.
 
 ## Contents
 

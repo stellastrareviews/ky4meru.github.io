@@ -5,3 +5,8 @@ theme: just-the-docs
 url: https://github.com/ky4meru/ky4meru.github.io
 
 color_scheme: dark
+
+callouts:
+  warning:
+    title: Warning
+    color: red
