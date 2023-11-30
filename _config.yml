@@ -14,7 +14,6 @@ callouts:
     title: Important
     color: blue
 
-markup / liquid-based content.
 footer_content: "Copyright &copy; 2023 Ky4meru. Distributed by an <a href=\"https://github.com/ky4meru/ky4meru.github.io/blob/main/LICENSE\">MIT license.</a>"
 
 last_edit_timestamp: true

@@ -17,10 +17,6 @@ permalink: /azure/
 
 ---
 
-## TODO
-
-- MSOL & SYNC accounts compromise
-
 ## Without an account
 
 First, check if the Azure domain exists.

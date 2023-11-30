@@ -18,6 +18,8 @@ This repository is a fork of [Just the Docs](https://github.com/just-the-docs/ju
   * PSExec
   * SeImpersonatePrivilege Abuse
   * Shares Enumeration
+- Azure
+  * MSOL and SYNC account compromise
 - Linux
   * Setuid vulnerability description and recommendations
   * Cron Jobs Abuse vulnerability description and recommendations
