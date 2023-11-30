@@ -25,7 +25,7 @@ permalink: /windows/
 
 First, you should perform a [Network Recon](../network/README.md) of your target to identify quick wins or running services you could exploit. Once identified, refer to [Web Attacks](../web/README.md) to attempt remote code execution that could give you an initial foothold on the target or try following exploits.
 
-- [BlueKeep [CVE-2019-0708]](./bluekeep.md)
+- [BlueKeep [CVE-2019-0708]](/windows/bluekeep/)
 - [EternalBlue [MS17-010]](./eternalblue.md)
 
 ## Privilege escalation
