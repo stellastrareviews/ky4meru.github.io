@@ -1,8 +1,21 @@
-# [Linux](./README.md) > Setuid Capabilities
+---
+layout: default
+title: Setuid Capabilities
+parent: Linux
+nav_order: 1
+permalink: /linux/setuid/
+---
 
-## Vulnerability
+# Setuid Capabilities
+{: .no_toc }
 
-TODO
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ## Prerequisites
 
@@ -17,7 +30,3 @@ getcap -r / 2>/dev/null | grep setuid
 ```
 
 Once you find a suitable binary, you can either try to exploit it by your way, or check on [GTFOBins](https://gtfobins.github.io/).
-
-## Recommendations
-
-TODO

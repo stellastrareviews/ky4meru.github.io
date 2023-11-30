@@ -17,10 +17,6 @@ permalink: /ad/asreproasting/
 
 ---
 
-## Vulnerability
-
-TODO
-
 ## Prerequisites
 
 - Low privileged domain account.

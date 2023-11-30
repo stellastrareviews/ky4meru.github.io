@@ -17,13 +17,8 @@ permalink: /linux/sudo/
 
 ---
 
-## Disclamer
-
-Performing following exploit, you could be blocked by AppArmor (Linux kernel module). To check if the binary is in a protected mode, run `aa-status`.
-
-## Vulnerability
-
-TODO
+{: .important }
+> Performing following exploit, you could be blocked by AppArmor (Linux kernel module). To check if the binary is in a protected mode, run `aa-status`.
 
 ## Prerequisites
 
@@ -42,7 +37,3 @@ sudo -l
 ```
 
 Now, you can try to exploit these binaries with [GTFOBins](https://gtfobins.github.io/).
-
-## Recommendations
-
-TODO

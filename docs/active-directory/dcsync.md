@@ -17,10 +17,6 @@ permalink: /ad/dcsynk/
 
 ---
 
-## Vulnerability
-
-TODO
-
 ## Prerequisites
 
 - Domain account with *Replicating Directory Changes*, *Replicating Directory Changes All*, and Re*plicating Directory Changes in Filtered Set* rights. By default, members of the *Domain Admins*, *Enterprise Admins*, and *Administrators* groups have these rights assigned.

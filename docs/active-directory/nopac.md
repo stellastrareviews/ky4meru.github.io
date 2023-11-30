@@ -16,5 +16,3 @@ permalink: /ad/nopac/
 {:toc}
 
 ---
-
-TODO

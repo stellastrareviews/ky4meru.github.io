@@ -17,11 +17,6 @@ permalink: /network/enumeration/
 
 ---
 
-## TODO
-
-- Aquatone
-- Mascan
-
 ## Exploit
 
 ```bash

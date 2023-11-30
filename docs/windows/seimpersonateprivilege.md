@@ -17,11 +17,6 @@ permalink: /windows/seimpersonateprivilege/
 
 ---
 
-
-## Vulnerability
-
-TODO
-
 ## Exploit
 
 ```bash

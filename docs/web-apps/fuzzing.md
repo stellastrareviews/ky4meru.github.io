@@ -17,10 +17,6 @@ permalink: /webapps/fuzzing/
 
 ---
 
-## Vulnerability
-
-TODO
-
 ## Exploit
 
 ```bash

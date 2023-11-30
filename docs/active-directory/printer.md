@@ -45,8 +45,6 @@ feh ./aquatone/screenshots
 
 If you find printers, they might be protected with authentication (it is not always the case). Do not panic, default credentials are often in use. Below is a summary of default credentials depending on the printer brand and model. You can also try to exploit RCE on the printer's web page, they are often vulnerable.
 
-TODO
-
 Once you are authenticated on the printer as an administrator, search for the LDAP configuration page. If the printer authenticates users on the domain, you should see a field somewhere that specifies the destination IP or DNS.
 
 Change this field with your local IP and start a `responder` to authentication requests.

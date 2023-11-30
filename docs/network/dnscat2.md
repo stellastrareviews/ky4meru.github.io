@@ -16,5 +16,3 @@ permalink: /network/dnscat2/
 {:toc}
 
 ---
-
-TODO

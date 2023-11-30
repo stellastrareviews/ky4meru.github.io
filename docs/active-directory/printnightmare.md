@@ -17,11 +17,6 @@ permalink: /ad/printnightmare/
 
 ---
 
-
-## Vulnerability
-
-TODO
-
 ## Prerequisites
 
 - Low privileged domain account.
@@ -54,7 +49,3 @@ You will also need to find or code the DLL you want to execute on the target. Fo
 # Delete the loaded driver
 ./printnightmare.py -delete -name 'Microsoft XPS Document Writer v5' '$DOMAIN/$USERNAME:$PASSWORD@$TARGET'
 ```
-
-## Recommendations
-
-TODO

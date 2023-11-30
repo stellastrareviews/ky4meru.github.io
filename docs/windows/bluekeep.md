@@ -23,9 +23,7 @@ permalink: /windows/bluekeep/
 
 ## Exploit
 
-TODO: scan using https://github.com/robertdavidgraham/rdpscan
-
-Then, to exploit vulnerable targets, run following commands using `Metasploit`.
+To exploit vulnerable targets, run following commands using `Metasploit`.
 
 ```bash
 # Start metasploit

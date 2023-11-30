@@ -17,10 +17,6 @@ permalink: /linux/kernel/
 
 ---
 
-## Vulnerability
-
-TODO
-
 ## Prerequisites
 
 - Low privileged access to the Linux target
@@ -41,7 +37,3 @@ arch
 ```
 
 Once you have all prerequisites in mind, use `searchsploit`, or anything else, to find your exploit.
-
-## Recommendations
-
-TODO

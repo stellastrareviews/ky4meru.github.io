@@ -20,19 +20,6 @@ permalink: /ad/
 {: .important }
 > This section assumes that you have **at least a network access** to the Active Directory domain.
 
-## TODO
-
-- First Lookup
-- NetNTLMv2 Relay: encoding PS one liner
-- NoPac [CVE-2021-42278] & [CVE-2021-42287]
-- Passwords expired
-- Port forwarding to lateralize (which chisel or powershell)
-- Privileges Abuse (GenericAll, AllExtendedRights, etc.)
-- PSExec
-- SeImpersonatePrivilege Abuse
-- Shares Enumeration
-- SNMP attacks on Windows
-
 ## Recon
 
 Before starting to play with following exploits, it is a good idea to recover information about the domain you are going to attack as an unauthenticated user.

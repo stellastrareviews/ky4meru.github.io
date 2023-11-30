@@ -17,8 +17,6 @@ permalink: /ad/ntlmrelay/
 
 ---
 
-TODO
-
 ## Vulnerability
 
 If a windows client cannot resolve a hostname using DNS, it will use the Link-Local Multicast Name Resolution (LLMNR) protocol to ask neighbouring computers. LLMNR can be used to resolve both IPv4 and IPv6 addresses.

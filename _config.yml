@@ -10,3 +10,6 @@ callouts:
   warning:
     title: Warning
     color: red
+  important:
+    title: Important
+    color: blue

@@ -17,10 +17,6 @@ permalink: /webapps/wordpress/
 
 ---
 
-## Vulnerability
-
-TODO
-
 ## Exploit
 
 ```bash
