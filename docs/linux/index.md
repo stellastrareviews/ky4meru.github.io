@@ -4,6 +4,7 @@ title: Linux
 nav_order: 3
 has_children: true
 permalink: /linux/
+has_toc: false
 ---
 
 # Linux

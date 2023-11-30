@@ -4,13 +4,17 @@ title: Active Directory
 nav_order: 2
 has_children: true
 permalink: /ad/
+has_toc: false
 ---
 
-# Windows
+# Active Directory
 {: .no_toc }
 
 ## Table of contents
 {: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ---
 

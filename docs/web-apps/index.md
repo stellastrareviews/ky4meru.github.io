@@ -4,6 +4,7 @@ title: Web Applications
 nav_order: 5
 has_children: true
 permalink: /webapps/
+has_toc: false
 ---
 
 # Web Applications

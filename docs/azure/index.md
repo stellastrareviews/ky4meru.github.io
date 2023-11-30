@@ -4,6 +4,7 @@ title: Azure
 nav_order: 2
 has_children: true
 permalink: /azure/
+has_toc: false
 ---
 
 # Azure
