@@ -1,7 +1,9 @@
 ---
 layout: default
-title: Search
-nav_order: 7
+title: Windows
+nav_order: 5
+has_children: true
+permalink: /windows/
 ---
 
 # Windows
