@@ -12,9 +12,9 @@ permalink: /
 
 ## Contents
 
-- [Active Directory](./active-directory/README.md)
-- [Azure](./azure/README.md)
-- [Network](./network/README.md)
-- [Linux](./linux/README.md)
-- [Web Applications](./web/README.md)
-- [Windows](./windows/README.md)
+- [Active Directory](/ad/)
+- [Azure](/azure/)
+- [Network](/network/)
+- [Linux](/linux/)
+- [Web Applications](/webapps/)
+- [Windows](/windows/)
