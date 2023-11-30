@@ -1,8 +1,9 @@
 ---
 layout: default
 title: ZeroLogon [CVE-2020-1472]
-nav_order: 10
-permalink: /ad/zerologon
+parent: Active Directory
+nav_order: 16
+permalink: /ad/zerologon/
 ---
 
 # ZeroLogon [CVE-2020-1472]
@@ -16,9 +17,7 @@ permalink: /ad/zerologon
 
 ---
 
-{: .warning-title }
-> Disclaimer
->
+{: .warning }
 > Following exploit **changes the password** of a domain controller's account, which **breaks communications with other domain controllers** (DCSync) until you will restore the original password.
 
 ## Vulnerability
