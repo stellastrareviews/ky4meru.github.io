@@ -6,7 +6,7 @@ has_children: true
 permalink: /linux/
 ---
 
-# Windows
+# Linux
 {: .no_toc }
 
 ## Table of contents
@@ -19,7 +19,7 @@ permalink: /linux/
 
 ## Without an account
 
-First, you should perform a [Network Recon](../network/README.md) of your target to identify quick wins or running services you could exploit. Once identified, refer to [Web Attacks](../web/README.md) to attempt remote code execution that could give you an initial foothold on the target.
+First, you should perform a [Network Recon](/network/) of your target to identify quick wins or running services you could exploit. Once identified, refer to [Web Attacks](/webapps/) to attempt remote code execution that could give you an initial foothold on the target.
 
 ## Privilege escalation
 

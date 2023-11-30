@@ -41,7 +41,7 @@ Before starting to play with following exploits, it is a good idea to recover in
 
 ## Without an account
 
-First thing you want to achive to compromise a domain is to get an initial foothold. To do so, following attacks can be used to gain a domain joined account, either user or computer one. [Web attacks](../web/README.md) can also be a good entrypoint on an Active Directory domain.
+First thing you want to achive to compromise a domain is to get an initial foothold. To do so, following attacks can be used to gain a domain joined account, either user or computer one. [Web attacks](/webapps/) can also be a good entrypoint on an Active Directory domain.
 
 - [BlueKeep [CVE-2019-0708]](/windows/bluekeep/)
 - [Bruteforce](/ad/bruteforce/)

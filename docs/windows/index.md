@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Windows
-nav_order: 5
+nav_order: 6
 has_children: true
 permalink: /windows/
 ---
@@ -23,7 +23,7 @@ permalink: /windows/
 
 ## Without an account
 
-First, you should perform a [Network Recon](../network/README.md) of your target to identify quick wins or running services you could exploit. Once identified, refer to [Web Attacks](../web/README.md) to attempt remote code execution that could give you an initial foothold on the target or try following exploits.
+First, you should perform a [Network Recon](/network/) of your target to identify quick wins or running services you could exploit. Once identified, refer to [Web Attacks](/webapps/) to attempt remote code execution that could give you an initial foothold on the target or try following exploits.
 
 - [BlueKeep [CVE-2019-0708]](/windows/bluekeep/)
 - [EternalBlue [MS17-010]](/windows/eternalblue/)

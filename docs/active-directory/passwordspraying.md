@@ -25,7 +25,7 @@ This exploit can **lock** a large amount of - or even all - domain accounts. Be 
 
 For this attack, vulnerability isn't technical. It is simply humans too lazy to put strong and unique passwords.
 
-Password spraying consist in trying a very few passwords for a large amount of potential usernames. It is kind of the opposite of [bruteforce](./bruteforce.md), where you attempt many passwords.
+Password spraying consist in trying a very few passwords for a large amount of potential usernames. It is kind of the opposite of [bruteforce](/ad/bruteforce/), where you attempt many passwords.
 
 ## Prerequisites
 
