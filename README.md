@@ -30,6 +30,8 @@ This repository is a fork of [Just the Docs](https://github.com/just-the-docs/ju
   * Fuzzing vulnerability description and recommendations
   * DNSCat2
   * WordPress vulnerability description and recommendation
+- Misc
+  * Lowercase variables instead of uppercase
 - Windows
   * SNMP attacks on Windows
   * BlueKeep scan with rdpscan

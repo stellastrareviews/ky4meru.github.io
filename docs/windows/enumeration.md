@@ -17,7 +17,7 @@ permalink: /windows/enumeration/
 
 ---
 
-## Automated tools
+## Automated enumeration
 
 ```bash
 # Using WinPEAS
