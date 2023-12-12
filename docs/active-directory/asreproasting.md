@@ -17,10 +17,16 @@ permalink: /ad/asreproasting/
 
 ---
 
+## Vulnerability
+
+AS-REP Roasting consists in identifying domain users that have the attribute `DONT_REQ_PREAUTH` enabled. With such an attribute, anyone can send an AS-REQ request on behalf of these users and recieve an AS-REP message. This message contains data encrypted with the user key, derived from its password. Therefore, it's possible to crack offline the password of the corresponding user.
+
+This attack can be performed without any initial domain account. Nevertheless, a domain account is needed to list domain accounts vulnerable to AS-REP Roasting. Without, you'll have to guess them.
+
 ## Prerequisites
 
-- Low privileged domain account.
-- Target must be a domain user with “*Do not require Kerberos preauthentication*” enabled.
+- Low privileged domain account (to enumerate vulnerable domain users).
+- Target must be a domain user with “*Do not require Kerberos preauthentication*” (DONT_REQ_PREAUTH) enabled.
 
 ## Exploit
 
