@@ -3,7 +3,7 @@ layout: default
 title: DCSync Attack
 parent: Active Directory
 nav_order: 5
-permalink: /ad/dcsynk/
+permalink: /ad/dcsync/
 ---
 
 # DCSync Attack

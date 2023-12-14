@@ -3,7 +3,7 @@ layout: default
 title: Kerberoasting
 parent: Active Directory
 nav_order: 7
-permalink: /ad/keberoasting/
+permalink: /ad/kerberoasting/
 ---
 
 # Kerberoasting
