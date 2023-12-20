@@ -71,4 +71,10 @@ Get-ChildItem -Path C:\Users\$username\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,
 # Get history of PowerShell
 (Get-PSReadlineOption).HistorySavePath
 type <PATH>
+
+# Get AppLocker enforced policy.
+Get-AppLockerPolicy -Effective -XML
+
+# Get environment variables
+Get-Children -Path Env:
 ```
