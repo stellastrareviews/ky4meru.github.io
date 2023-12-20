@@ -33,13 +33,13 @@ First, you will need to extract all objects of the domain.
 
 ```bash
 # From Kali.
-bloodhound-python -d $DOMAIN -u $USERNAME -p $PASSWORD -c All
+bloodhound-python -d $domain -u $username -p $password -c All
 
 # From a domain joined Windows computer.
 .\SharpHound.exe -c All
 
 # From a Windows computer which is not joined to the domain.
-.\SharpHound.exe -d $DOMAIN --ldapusername $USERNAME --ldappassword $PASSWORD -c All
+.\SharpHound.exe -d $domain --ldapusername $username --ldappassword $password -c All
 ```
 
 This operation will generate multiple files containing domain's objects. You can now import these files in `BloodHound` to visualize domain's organization and find attack paths.
@@ -51,7 +51,7 @@ This operation will generate multiple files containing domain's objects. You can
 .\PingCastle.exe --healthcheck
 
 # From a distant computer
-.\PingCastle.exe --healthcheck --server $DOMAIN --user $USERNAME --password $PASSWORD
+.\PingCastle.exe --healthcheck --server $domain --user $username --password $password
 ```
 
 ## Manual enumeration 
@@ -60,10 +60,15 @@ This operation will generate multiple files containing domain's objects. You can
 # Using Net.exe
 net user /domain
 net user
-net user $USERNAME /domain
+net user $username /domain
 net group /domain
 net localgroup
-net group $GROUP [/domain]
+net group $group [/domain]
+net accounts
+
+# Using ActiveDirectory PowerShell module.
+Get-ADGroupMember 'domain admins' | select samaccountname
+Get-ADUser -Filter {PasswordExpired -eq $True} -Properties PasswordLastSet, PasswordExpired, PasswordNeverExpires | Sort-Object Name
 
 # In a PowerShell file...
 function LDAPSearch {
@@ -81,7 +86,7 @@ function LDAPSearch {
 # ...then import and use it
 powershep -ep bypass
 Import-Module ./ldapsearch.ps1
-LDAPSearch -LDAPQuery "$LDAP_FILTER"
+LDAPSearch -LDAPQuery "$ldap_filter"
 
 # Using PowerView (https://powersploit.readthedocs.io/en/latest/Recon/)
 powershell -ep bypass
@@ -94,12 +99,12 @@ Get-NetUser | select cn,pwdlastset,lastlogon
 Get-NetGroup | select cn
 Get-NetComputer | select operatingsystem,dnshostname
 Find-LocalAdminAccess
-Get-NetSession -ComputerName $TARGET -Verbose
-setspn -L $USERNAME
+Get-NetSession -ComputerName $target -Verbose
+setspn -L $username
 Get-NetUser -SPN | select samaccountname,serviceprincipalname
 Find-DomainShare
 ```
 
 ## Recommentations
 
-There is **no way to avoid Active Directory enumeration** for an authenticated user on the domain. The only recommendation here is to harden enough the domain to avoid privilege escalation, even if the attacker has an initial foothold.
+- [ ] There is **no way to avoid Active Directory enumeration** for an authenticated user on the domain. The only recommendation here is to harden enough the domain to avoid privilege escalation, even if the attacker has an initial foothold.

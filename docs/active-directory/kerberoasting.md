@@ -39,8 +39,8 @@ sudo impacket-GetUserSPNs -dc-ip $dc_ip $domain/$username:$password
 # From a domain joined computer with PowerView.
 Get-NetUser -SPN
 
-# From a domain joined computer with Active Directory module.
-Get-ADUSer -Filter { ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
+# From a domain joined computer with ActiveDirectory PowerShell module.
+Get-ADUSer -Filter { ServicePrincipalName -ne "$null" } -Properties ServicePrincipalName
 ```
 
 Following commands will request a TGS-REP for all Kerberoastable accounts. Hashes are then stored into the specified output file.

@@ -27,10 +27,14 @@ winPEAS.exe
 Seatbelt.exe -group=all -full -outfile="C:\Temp\out.txt"
 
 # Using Seatbelt remotely
-Seatbelt.exe -group=system-computername=192.168.230.209 -username=DOMAIN\user -password="password"
+Seatbelt.exe -group=system-computername=$target -username=$domain\$username -password="$password"
 
 # Using JAWS
 powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAWS-Enum.txt
+
+# Using WesNG
+systeminfo > systeminfo.out
+wes.py systeminfo.out
 ```
 
 ## Manual enumeration
@@ -62,7 +66,7 @@ Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Un
 Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
 
 # Search for useful files that might contains sensitive information
-Get-ChildItem -Path C:\Users\user\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
+Get-ChildItem -Path C:\Users\$username\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
 
 # Get history of PowerShell
 (Get-PSReadlineOption).HistorySavePath

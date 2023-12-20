@@ -36,10 +36,17 @@ If option `2` is set to `None`, you can perform bruteforce without taking the ri
 First, you will need to know the password policy enforced on the domain to prevent any account lockout. If you already have a domain joined account, you can simply kindly ask.
 
 ```bash
+# From Kali.
 cme smb -d $DOMAIN -u $USERNAME -p $PASSWORD --pass-pol
+
+# From a domain joined computer with ActiveDirectory PowerShell module.
+Get-ADDefaultDomainPasswordPolicy
+
+# From a domain joined computer with native PowerShell.
+net accounts
 ```
 
-If *Account Lockout Threshold* is set to `None`, prepare your wordlists.
+If *Account Lockout Threshold* is set to `None`, prepare your wordlists. Otherwise, prefer doing [Password Spraying](/ad/spraying/).
 
 ```bash
 # Try multiple passwords with the same username.
