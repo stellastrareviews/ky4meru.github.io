@@ -5,7 +5,6 @@ This repository is a fork of [Just the Docs](https://github.com/just-the-docs/ju
 ## What's next?
 
 - Active Directory
-  * DCSync vulnerability description
   * NoPac exploit
   * PrintNightmare vulnerability description and recommendations
   * Printer's default passwords depending on model
