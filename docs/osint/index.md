@@ -20,4 +20,6 @@ has_toc: false
 
 # Passive information gathering
 
+- [Domain Exposure](/osint/domain/)
+- [Git Repositories](/osint/git/)
 - [Google Dorks](/osint/dorks/)

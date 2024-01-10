@@ -2,7 +2,7 @@
 layout: default
 title: Git Repositories
 parent: Open Source Intelligence
-nav_order: 2
+nav_order: 3
 permalink: /osint/git/
 ---
 

@@ -2,7 +2,7 @@
 layout: default
 title: Google Dorks
 parent: Open Source Intelligence
-nav_order: 1
+nav_order: 2
 permalink: /osint/dorks/
 ---
 
