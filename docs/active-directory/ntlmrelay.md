@@ -2,7 +2,7 @@
 layout: default
 title: NTLM Relay
 parent: Active Directory
-nav_order: 10
+nav_order: 11
 permalink: /ad/ntlmrelay/
 ---
 

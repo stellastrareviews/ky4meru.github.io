@@ -2,7 +2,7 @@
 layout: default
 title: ZeroLogon [CVE-2020-1472]
 parent: Active Directory
-nav_order: 16
+nav_order: 17
 permalink: /ad/zerologon/
 ---
 

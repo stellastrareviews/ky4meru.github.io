@@ -2,7 +2,7 @@
 layout: default
 title: Password Spraying
 parent: Active Directory
-nav_order: 11
+nav_order: 12
 permalink: /ad/spraying/
 ---
 

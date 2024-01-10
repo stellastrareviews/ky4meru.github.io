@@ -2,7 +2,7 @@
 layout: default
 title: SYSVOL Enumeration
 parent: Active Directory
-nav_order: 15
+nav_order: 16
 permalink: /ad/sysvol/
 ---
 

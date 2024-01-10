@@ -2,7 +2,7 @@
 layout: default
 title: NoPac [CVE-2021-42278] & [CVE-2021-42287]
 parent: Active Directory
-nav_order: 9
+nav_order: 10
 permalink: /ad/nopac/
 ---
 

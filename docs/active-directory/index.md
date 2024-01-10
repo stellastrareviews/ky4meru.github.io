@@ -46,6 +46,7 @@ Once you get either a low privileged domain account or an access to a domain joi
 - [AS-REP Roasting](/ad/asreproasting/)
 - [Cached Credentials Extraction](/ad/credentials/)
 - [DCSync Attack](/ad/dcsync/)
+- [Golden Tickets](/ad/golden/)
 - [Kerberoasting](/ad/kerberoasting/)
 - [NoPac [CVE-2021-42278] & [CVE-2021-42287]](/ad/nopac/)
 - [PetitPotam [CVE-2022-26925]](/ad/petitpotam/)

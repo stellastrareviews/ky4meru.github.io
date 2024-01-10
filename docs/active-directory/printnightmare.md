@@ -2,7 +2,7 @@
 layout: default
 title: PrintNightmare [CVE-2021-34527]
 parent: Active Directory
-nav_order: 14
+nav_order: 15
 permalink: /ad/printnightmare/
 ---
 

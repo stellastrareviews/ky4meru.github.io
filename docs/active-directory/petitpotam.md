@@ -2,7 +2,7 @@
 layout: default
 title: PetitPotam [CVE-2022-26925]
 parent: Active Directory
-nav_order: 12
+nav_order: 13
 permalink: /ad/petitpotam/
 ---
 
