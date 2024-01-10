@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Open Source Intelligence
-nav_order: 5
+nav_order: 6
 has_children: true
 permalink: /osint/
 has_toc: false
