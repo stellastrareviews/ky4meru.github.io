@@ -29,6 +29,10 @@ TODO: Describe the vulnerability here.
 
 TODO: Explain exploit steps here.
 
+## Useful links
+
+* TODO: List links here.
+
 ## Recommendations
 
 - [ ] TODO: List recommendations here.
