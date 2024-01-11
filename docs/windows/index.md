@@ -22,8 +22,10 @@ permalink: /windows/
 First, you should perform a [Network Recon](/network/) of your target to identify quick wins or running services you could exploit. Once identified, refer to [Web Attacks](/webapps/) to attempt remote code execution that could give you an initial foothold on the target or try following exploits.
 
 - [BlueKeep [CVE-2019-0708]](/windows/bluekeep/)
+- [Binary Hijacking](/windows/hijacking/)
 - [EternalBlue [MS17-010]](/windows/eternalblue/)
 - [Evade Kiosk Mode](/windows/kiosk/)
+- [Microsoft Office Exploit](/windows/office/)
 - [SNMP Enumeration](/windows/snmp/)
 
 ## Privilege escalation
