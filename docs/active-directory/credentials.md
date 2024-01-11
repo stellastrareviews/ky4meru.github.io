@@ -68,4 +68,4 @@ cme smb $TARGET -u $USERNAME -p $PASSWORD -M lsassy
 
 ## Recommendations
 
-- [ ]  Enable additional LSA Protection. The LSA includes the LSASS process. By setting a registry key, Windows prevents reading memory from this process.
+- [ ] Enable additional LSA Protection. The LSA includes the LSASS process. By setting a registry key, Windows prevents reading memory from this process.
