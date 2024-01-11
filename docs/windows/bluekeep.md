@@ -2,7 +2,7 @@
 layout: default
 title: BlueKeep [CVE-2019-0708]
 parent: Windows
-nav_order: 1
+nav_order: 2
 permalink: /windows/bluekeep/
 ---
 

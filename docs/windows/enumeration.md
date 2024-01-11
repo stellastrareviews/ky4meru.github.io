@@ -2,7 +2,7 @@
 layout: default
 title: Windows Enumeration
 parent: Windows
-nav_order: 2
+nav_order: 3
 permalink: /windows/enumeration/
 ---
 
