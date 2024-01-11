@@ -18,3 +18,10 @@ permalink: /
 - [Linux](/linux/)
 - [Web Applications](/webapps/)
 - [Windows](/windows/)
+
+## Acknowledgements
+
+You definitly should take a look at followings:
+
+- [HackTricks](https://book.hacktricks.xyz/)
+- [IRed.Team](https://www.ired.team/)
