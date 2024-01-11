@@ -59,3 +59,4 @@ Once you get either a low privileged domain account or an access to a domain joi
 
 - [Net-NTLMv2 Relay](/ad/netntlmv2relay/)
 - [Pass the Ticket](/ad/passtheticket/)
+- [Silver Tickets](/ad/silver/)
