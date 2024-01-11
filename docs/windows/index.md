@@ -24,6 +24,7 @@ First, you should perform a [Network Recon](/network/) of your target to identif
 - [BlueKeep [CVE-2019-0708]](/windows/bluekeep/)
 - [EternalBlue [MS17-010]](/windows/eternalblue/)
 - [Evade Kiosk Mode](/windows/kiosk/)
+- [SNMP Enumeration](/windows/snmp/)
 
 ## Privilege escalation
 
