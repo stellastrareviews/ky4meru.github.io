@@ -78,3 +78,16 @@ Get-AppLockerPolicy -Effective -XML
 # Get environment variables
 Get-Children -Path Env:
 ```
+
+## Antivirus and EDR enumeration
+
+```powershell
+# With WMIC through cmd.
+wmic /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntivirusProduct
+
+# With PowerShell.
+Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntivirusProduct
+
+# Check Windows Defender status.
+Get-Service WinDefend
+```
