@@ -20,7 +20,7 @@ has_toc: false
 
 ## Enumeration
 
-TBD
+- [AV & EDR Enumeration](/antivirus/enumeration/)
 
 ## Bypass
 

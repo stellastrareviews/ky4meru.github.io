@@ -27,6 +27,8 @@ permalink: /linux/enumeration/
 
 ## Manual enumeration
 
+Don't forget to take a loot at [Antivirus Enumeration](/antivirus/enumeration/) page to list active antivirus and EDRs on the Linux host.
+
 ```bash
 # Get user information
 whoami
