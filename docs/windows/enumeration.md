@@ -35,6 +35,9 @@ powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAW
 # Using WesNG
 systeminfo > systeminfo.out
 wes.py systeminfo.out
+
+# Using Enum4Linux
+enum4linux-ng $target -u $username -p $password
 ```
 
 ## Manual enumeration
