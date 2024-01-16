@@ -7,8 +7,13 @@ permalink: /
 
 # Ky4meru
 
+Welcome on a *Camel's Diary*.
+
 {: .warning }
-> **Cybercriminality is punished by law**. Use this wiki carefully and at your own risks.
+> Legal disclaimer
+>
+> This website is under [MIT License](https://github.com/ky4meru/ky4meru.github.io/blob/main/LICENSE) and intended for educational and informational purposes **only**.
+> Use it carefully and **at your own risks**.
 
 ## Contents
 
