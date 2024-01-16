@@ -29,3 +29,7 @@ permalink: /antivirus/bypass/
 - [Inceptor](https://github.com/klezVirus/inceptor)
 - [Nimcrypt2](https://github.com/icyguider/Nimcrypt2)
 - [Pyramid](https://github.com/naksyn/Pyramid)
+
+## Useful links
+
+* [VirusTotal](https://www.virustotal.com/gui/home/upload) to check if your malware is detectable.
