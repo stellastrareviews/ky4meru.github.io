@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Linux
-nav_order: 4
+nav_order: 6
 has_children: true
 permalink: /linux/
 has_toc: false

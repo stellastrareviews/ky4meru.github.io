@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Web Applications
-nav_order: 7
+nav_order: 9
 has_children: true
 permalink: /webapps/
 has_toc: false
@@ -18,16 +18,15 @@ has_toc: false
 
 ---
 
-## TODO
+## Generic attacks
 
-- Apache HTTPd
-- DMWare SolarWinds
-- HP iLO
-- VMWare ESXi
-- WordPress
+- [Brute force](/webapps/bruteforce/)
+- [Directory Transversal](/webapps/transversal/)
+- [Fuzzing](/webapps/fuzzing/)
+- [Local File Inclusion](/webapps/lfi/)
+- [SQL Injection](/webapps/sqli/)
 
-## Contents
+## Specific applications
 
 - [Apache Tomcat](/webapps/tomcat/)
-- [Fuzzing](/webapps/fuzzing/)
 - [WordPress](/webapps/wordpress/)

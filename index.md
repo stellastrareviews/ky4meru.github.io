@@ -13,8 +13,11 @@ permalink: /
 ## Contents
 
 - [Active Directory](/ad/)
+- [Antivirus](/antivirus/)
 - [Azure](/azure/)
+- [Cracking](/cracking/)
 - [Network](/network/)
+- [Open Source Intelligence](/osint/)
 - [Linux](/linux/)
 - [Web Applications](/webapps/)
 - [Windows](/windows/)
@@ -23,5 +26,6 @@ permalink: /
 
 You definitly should take a look at followings:
 
+- [CSbyGB](https://csbygb.gitbook.io/)
 - [HackTricks](https://book.hacktricks.xyz/)
 - [IRed.Team](https://www.ired.team/)
