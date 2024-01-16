@@ -9,7 +9,7 @@ permalink: /
 
 Welcome on a *Camel's Diary*.
 
-{: .warning }
+{: .warning-title }
 > Legal disclaimer
 >
 > This website is under [MIT License](https://github.com/ky4meru/ky4meru.github.io/blob/main/LICENSE) and intended for educational and informational purposes **only**.
