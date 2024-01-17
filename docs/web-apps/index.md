@@ -30,3 +30,7 @@ has_toc: false
 
 - [Apache Tomcat](/webapps/tomcat/)
 - [WordPress](/webapps/wordpress/)
+
+## Useful links
+
+- [Wappalizer](https://www.wappalyzer.com/) to identify technologies used on web applications.
