@@ -13,7 +13,7 @@ Welcome on a *Camel's Diary*.
 > Legal disclaimer
 >
 > This website is under [MIT License](https://github.com/ky4meru/ky4meru.github.io/blob/main/LICENSE) and intended for educational and informational purposes **only**.
-> Use it carefully and **at your own risks**.
+> Use it carefully and **at your own risk**.
 
 ## Contents
 
@@ -29,7 +29,7 @@ Welcome on a *Camel's Diary*.
 
 ## Acknowledgements
 
-You definitly should take a look at followings:
+You definitely should take a look at followings:
 
 - [CSbyGB](https://csbygb.gitbook.io/)
 - [HackTricks](https://book.hacktricks.xyz/)
