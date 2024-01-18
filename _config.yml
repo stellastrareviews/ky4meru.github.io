@@ -2,7 +2,6 @@ title: Ky4meru
 description: A Camel\'s Diary
 theme: just-the-docs
 
-logo: "/assets/images/ky4meru.png"
 favicon_ico: "/assets/images/favicon.ico"
 
 url: https://github.com/ky4meru/ky4meru.github.io
@@ -27,3 +26,5 @@ gh_edit_link_text: "Edit this page on GitHub."
 gh_edit_repository: "https://github.com/ky4meru/ky4meru.github.io"
 gh_edit_branch: "main"
 gh_edit_view_mode: "tree"
+
+aux_links_new_tab: true
