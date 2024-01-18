@@ -23,7 +23,7 @@ When you are targeting a domain, it could be interesting to identify associated 
 
 ## Prerequisites
 
-* N/A.
+* Internet connection.
 
 ## Exploit
 
@@ -32,6 +32,27 @@ You can enumerate subdomains in multiple ways.
 ```bash
 # Passively using subfinder on Kali.
 subfinder -d $domain
+
+# Get IP adresses corresponding to a domain.
+host $domain
+host -t $type $domain
+
+# Get domain corresponding to IP address.
+nslookup $ip
+nslookup -type=$type $ip $host
+
+# Custom subdomain enumeration.
+for sub in $(cat subdomains.txt); do host $sub.$domain; done
+
+# Custom IP enumeration.
+for ip in $(seq 200 254); do host 51.222.169.$ip; done
+
+# Using DNSRecon.
+dnsrecon -d $domain -t std
+dnsrecon -d $domain -t brt -D $dict
+
+# Using DNSEnum
+dnsenum $domain
 ```
 
 ## Recommendations
