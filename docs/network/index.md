@@ -25,7 +25,9 @@ has_toc: false
 
 ## Recon
 
-- [Network Enumeration](/network/enumeration/)
+- [Ports Scanning](/network/scanning/)
+- [SMB Enumeration](/network/smb/)
+- [SMTP Enumeration](/network/smtp/)
 - [Subdomains Enumeration](/network/subdomains/)
 
 ## Lateralization
