@@ -29,8 +29,10 @@ Welcome on a *Camel's Diary*.
 
 ## Acknowledgements
 
-You definitely should take a look at followings:
+You definitely should take a look at followings. If you're looking for an information that is not here, it might be there:
 
 - [CSbyGB](https://csbygb.gitbook.io/)
 - [HackTricks](https://book.hacktricks.xyz/)
 - [IRed.Team](https://www.ired.team/)
+- [Pentester's Promiscuous Notebook](https://ppn.snovvcrash.rocks/)
+- [The Hacker Recipes](https://www.thehacker.recipes/)
