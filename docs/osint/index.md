@@ -21,6 +21,7 @@ has_toc: false
 # Passive information gathering
 
 - [Credentials Leak](/osint/leak/)
+- [DMARC Record](/osint/dmarc/)
 - [Domain Exposure](/osint/domain/)
 - [Git Repositories](/osint/git/)
 - [Google Dorks](/osint/dorks/)
