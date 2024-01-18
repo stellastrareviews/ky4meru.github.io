@@ -58,5 +58,10 @@ Once you get either a low privileged domain account or an access to a domain joi
 ## Lateralization
 
 - [Net-NTLMv2 Relay](/ad/netntlmv2relay/)
+- [Overpass the Hash](/ad/overpassthehash/)
 - [Pass the Ticket](/ad/passtheticket/)
 - [Silver Tickets](/ad/silver/)
+
+# Useful links
+
+- [ODC Mind Map](https://orange-cyberdefense.github.io/ocd-mindmaps/img/pentest_ad_dark_2023_02.svg) for the Orange Cyberdefense Active Directory mind map.
