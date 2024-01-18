@@ -2,6 +2,9 @@ title: Ky4meru
 description: A Camel\'s Diary
 theme: just-the-docs
 
+logo: "/assets/images/ky4meru.png"
+favicon_ico: "/assets/images/favicon.ico"
+
 url: https://github.com/ky4meru/ky4meru.github.io
 
 color_scheme: dark
