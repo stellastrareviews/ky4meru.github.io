@@ -21,7 +21,7 @@ permalink: /network/scanning/
 
 * Network route to the network you want to scan.
 
-# Netcat
+## Netcat
 
 ```bash
 # -u for UDP scan.
