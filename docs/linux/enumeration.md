@@ -42,7 +42,7 @@ cat /etc/issue
 ps aux
 ip a
 routel
-netstat -anp
+netstat -tulpn | grep LISTEN
 cat /etc/iptables/rules.v4
 ls -lah /etc/cron*
 [sudo] crontab -l
