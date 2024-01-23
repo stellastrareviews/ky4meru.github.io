@@ -21,6 +21,7 @@ Welcome on a *Camel's Diary*.
 - [Antivirus](/antivirus/)
 - [Azure](/azure/)
 - [Cracking](/cracking/)
+- [Databases](/databases/)
 - [Network](/network/)
 - [Open Source Intelligence](/osint/)
 - [Linux](/linux/)
