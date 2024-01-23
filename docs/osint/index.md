@@ -25,3 +25,4 @@ has_toc: false
 - [Domain Exposure](/osint/domain/)
 - [Git Repositories](/osint/git/)
 - [Google Dorks](/osint/dorks/)
+- [People](/osint/people/)

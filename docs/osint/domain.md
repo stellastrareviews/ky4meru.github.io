@@ -36,6 +36,12 @@ whois $domain -h $host
 theHarvester -d $domain -b $source
 ```
 
+You can also use [SpiderFoot](https://github.com/smicallef/spiderfoot) to search information on a company based on its name or domain.
+
+```bash
+spiderfoot -l 127.0.0.1:8000
+```
+
 ## Useful links
 
 * [Netcraft](https://searchdns.netcraft.com/) to find domains and subdomains.
