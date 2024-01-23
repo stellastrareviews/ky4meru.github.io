@@ -31,20 +31,19 @@ Before starting to play with following exploits, it is a good idea to recover in
 
 First thing you want to achive to compromise a domain is to get an initial foothold. To do so, following attacks can be used to gain a domain joined account, either user or computer one. [Web attacks](/webapps/) can also be a good entrypoint on an Active Directory domain.
 
-- [BlueKeep [CVE-2019-0708]](/windows/bluekeep/)
 - [Bruteforce](/ad/bruteforce/)
-- [EternalBlue [MS17-010]](/windows/eternalblue/)
 - [NTLM Relay](/ad/ntlmrelay/)
 - [Password Spraying](/ad/spraying)
 - [Printer Abuse](/ad/printer/)
 - [Zerologon [CVE-2020-1472]](/ad/zerologon/)
+
+You also should take a look at [Windows Initial Foothold](/windows/#without-an-account) methods.
 
 ## Privilege escalation
 
 Once you get either a low privileged domain account or an access to a domain joined computer, you can perform following attacks to escalate your privileges locally on domain computers or on the domain itself. You should perform [Active Directory Enumeration](/ad/enumeration/) to get as much information as possible before starting to exploit.
 
 - [AS-REP Roasting](/ad/asreproasting/)
-- [Cached Credentials Extraction](/ad/credentials/)
 - [DCSync Attack](/ad/dcsync/)
 - [Golden Tickets](/ad/golden/)
 - [Kerberoasting](/ad/kerberoasting/)
@@ -52,8 +51,9 @@ Once you get either a low privileged domain account or an access to a domain joi
 - [PetitPotam [CVE-2022-26925]](/ad/petitpotam/)
 - [Pre Windows 2000 Compatibility Abuse](/ad/compatibility/)
 - [PrintNightmare [CVE-2021-1675]](/ad/printnightmare/)
-- [SeImpersonatePrivilege Abuse](/windows/seimpersonateprivilege/)
 - [SYSVOL Enumeration](/ad/sysvol/)
+
+You also should take a look at [Windows Privilege Escalation](/windows/#privilege-escalation) methods.
 
 ## Lateralization
 
@@ -61,6 +61,8 @@ Once you get either a low privileged domain account or an access to a domain joi
 - [Overpass the Hash](/ad/overpassthehash/)
 - [Pass the Ticket](/ad/passtheticket/)
 - [Silver Tickets](/ad/silver/)
+
+You also should take a look at [Windows Lateralization](/windows/#lateralization) methods.
 
 # Useful links
 
