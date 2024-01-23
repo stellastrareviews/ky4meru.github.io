@@ -2,7 +2,7 @@
 layout: default
 title: Binary Hijacking
 parent: Windows
-nav_order: 5
+nav_order: 7
 permalink: /windows/hijacking/
 ---
 

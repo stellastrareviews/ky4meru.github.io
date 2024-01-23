@@ -2,7 +2,7 @@
 layout: default
 title: Kiosk Mode Evasion
 parent: Windows
-nav_order: 5
+nav_order: 8
 permalink: /windows/kiosk/
 ---
 

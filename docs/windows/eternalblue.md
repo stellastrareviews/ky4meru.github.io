@@ -2,7 +2,7 @@
 layout: default
 title: EternalBlue [MS17-010]
 parent: Windows
-nav_order: 4
+nav_order: 6
 permalink: /windows/eternalblue/
 ---
 

@@ -2,7 +2,7 @@
 layout: default
 title: SeImpersonatePrivilege Abuse
 parent: Windows
-nav_order: 8
+nav_order: 11
 permalink: /windows/seimpersonateprivilege/
 ---
 
