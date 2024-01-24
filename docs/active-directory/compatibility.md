@@ -31,8 +31,12 @@ DOMAIN/COMPUTER$:COMPUTER
 
 ## Exploit
 
-To lookup on domain computers that have this option enabled, use `ldapsearch-ad`.
+To lookup on domain computers that have this option enabled, use [ldapsearch-ad](https://github.com/yaap7/ldapsearch-ad).
 
 ```bash
-./ldapsearch-ad.py -l $DC_IP -d $DOMAIN -u $USERNAME -p $PASSWORD -t search -s '(userAccountControl=4128)'
+./ldapsearch-ad.py -l $dc_ip -d $domain -u $username -p $password -t search -s '(userAccountControl=4128)'
 ```
+
+## Recommendations
+
+- [ ] Change default credentials for concerned computers.
