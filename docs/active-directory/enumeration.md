@@ -27,12 +27,12 @@ Active Directory enumeration is not a vulnerability by itself. Actually, it is m
 
 ## Automated tools
 
-The best tool to enumerate and get graphical insights of an Active Directory domain is `BloodHound`.
+The best tool to enumerate and get graphical insights of an Active Directory domain is [BloodHound](https://github.com/BloodHoundAD/BloodHound) and associated ingestors like [BloodHound.py](https://github.com/dirkjanm/BloodHound.py) or [SharpHound](https://github.com/BloodHoundAD/SharpHound).
 
 First, you will need to extract all objects of the domain.
 
 ```bash
-# From Kali.
+# From Kali, ingest domain objects with BloodHound.py.
 bloodhound-python -d $domain -u $username -p $password -c All
 
 # From a domain joined Windows computer.
@@ -42,15 +42,15 @@ bloodhound-python -d $domain -u $username -p $password -c All
 .\SharpHound.exe -d $domain --ldapusername $username --ldappassword $password -c All
 ```
 
-This operation will generate multiple files containing domain's objects. You can now import these files in `BloodHound` to visualize domain's organization and find attack paths.
+This operation will generate multiple files containing domain's objects. You can now import these files in [BloodHound](https://github.com/BloodHoundAD/BloodHound) to visualize domain's organization and find attack paths.
 
-`PingCastle` is also a very good candidate to enumerate the Active Directory domain. It will provide risks insights, highlighting misconfigurations and recommendations to apply.
+[PingCastle](https://www.pingcastle.com/) is also a very good candidate to enumerate the Active Directory domain. It will provide risks insights, highlighting misconfigurations and recommendations to apply.
 
 ```bash
-# From the domain controller itself
+# From the domain controller itself.
 .\PingCastle.exe --healthcheck
 
-# From a distant computer
+# From a distant computer.
 .\PingCastle.exe --healthcheck --server $domain --user $username --password $password
 ```
 
