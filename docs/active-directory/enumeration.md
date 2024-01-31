@@ -27,14 +27,27 @@ Active Directory enumeration is not a vulnerability by itself. Actually, it is m
 
 ## Automated tools
 
-The best tool to enumerate and get graphical insights of an Active Directory domain is [BloodHound](https://github.com/BloodHoundAD/BloodHound) and associated ingestors like [BloodHound.py](https://github.com/dirkjanm/BloodHound.py) or [SharpHound](https://github.com/BloodHoundAD/SharpHound).
+### BloodHound
 
-First, you will need to extract all objects of the domain.
+The best tool to enumerate and get graphical insights of an Active Directory domain is [BloodHound](https://github.com/BloodHoundAD/BloodHound) and associated ingestors like [BloodHound.py](/ad/enumeration/#BloodHound.py) or [SharpHound](/ad/enumeration/#SharpHound).
+
+First, you will need to extract all objects of the domain. These ingestors will do it and will generate multiple files containing domain's objects. You can now import these files in [BloodHound](https://github.com/BloodHoundAD/BloodHound) to visualize domain's organization and find attack paths.
+
+### BloodHound.py
+
+
+With [BloodHound.py](https://github.com/dirkjanm/BloodHound.py).
 
 ```bash
 # From Kali, ingest domain objects with BloodHound.py.
 bloodhound-python -d $domain -u $username -p $password -c All
+```
 
+### SharpHound
+
+With [SharpHound](https://github.com/BloodHoundAD/SharpHound).
+
+```powershell
 # From a domain joined Windows computer.
 .\SharpHound.exe -c All
 
@@ -42,7 +55,12 @@ bloodhound-python -d $domain -u $username -p $password -c All
 .\SharpHound.exe -d $domain --ldapusername $username --ldappassword $password -c All
 ```
 
-This operation will generate multiple files containing domain's objects. You can now import these files in [BloodHound](https://github.com/BloodHoundAD/BloodHound) to visualize domain's organization and find attack paths.
+{: .important }
+> You might be connected on a domain joined computer with a local account. In such a case, you won't be able to start `SharpHound.exe` from a PowerShell started with this local account.
+> To bypass this, you must run `SharpHound.exe` from a PowerShell started as `NT AUTHORITY\SYSTEM` so `SharpHound.exe` will use domain computer credentials to authenticate on the Active Directory domain.
+> To do so, you can use [PSExec](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec) by running `Psexec.exe -i -s C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe`.
+
+### PingCastle
 
 [PingCastle](https://www.pingcastle.com/) is also a very good candidate to enumerate the Active Directory domain. It will provide risks insights, highlighting misconfigurations and recommendations to apply.
 
