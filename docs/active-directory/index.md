@@ -64,6 +64,6 @@ You also should take a look at [Windows Privilege Escalation](/windows/#privileg
 
 You also should take a look at [Windows Lateralization](/windows/#lateralization) methods.
 
-# Useful links
+## Useful links
 
 - [ODC Mind Map](https://orange-cyberdefense.github.io/ocd-mindmaps/img/pentest_ad_dark_2023_02.svg) for the Orange Cyberdefense Active Directory mind map.
