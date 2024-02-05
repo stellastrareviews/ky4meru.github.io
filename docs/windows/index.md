@@ -38,6 +38,7 @@ Once you get a low privileged access on a Windows target, you can perform follow
 - [Cached Credentials Extraction](/windows/credentials/)
 - [Microsoft Office Exploit](/windows/office/)
 - [SeImpersonatePrivilege Abuse](/windows/seimpersonateprivilege/)
+- [Unquoted Service Paths](/windows/unquoted/)
 
 More privilege escalation exploits are be possible if your target is joined to an [Active Directory](/ad/#privilege-escalation) since you can use your target's machine account to authenticate on the domain.
 
