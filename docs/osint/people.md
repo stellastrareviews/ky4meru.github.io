@@ -48,7 +48,7 @@ spiderfoot -l 127.0.0.1:8000
 
 ## Useful links
 
-* TODO: List links here.
+* [Hunter.io](https://hunter.io/) to find email patterns.
 
 ## Recommendations
 
