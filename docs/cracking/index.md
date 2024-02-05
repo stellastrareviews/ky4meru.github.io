@@ -35,5 +35,6 @@ has_toc: false
 echo "$hash" | hashid
 
 # Crack with hashcat using masks (hashcat --help)
-hashcat.exe $hash ?u?l?H?h?a?s?b?d
+hashcat $hash ?u?l?H?h?a?s?b?d
+hashcat $hash file.hcmask
 ```
