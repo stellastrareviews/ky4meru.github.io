@@ -28,11 +28,15 @@ You can learn a lot on the Internet on someone or a company with a simple domain
 ## Exploit
 
 ```bash
-# Using whois
+# Get DNS A records (public IP addresses) using dig.
+dig $domain
+
+# Get information about the domain using whois.
+whois $ip
 whois $domain
 whois $domain -h $host
 
-# Using theHarvester
+# Using theHarvester.
 theHarvester -d $domain -b $source
 ```
 
@@ -41,6 +45,8 @@ You can also use [SpiderFoot](https://github.com/smicallef/spiderfoot) to search
 ```bash
 spiderfoot -l 127.0.0.1:8000
 ```
+
+You can actively learn more about a domain by [enumerating its subdomains](/network/subdomains/).
 
 ## Useful links
 
