@@ -28,9 +28,12 @@ has_toc: false
 * [Rule-based Attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack)
 * [OneRuleToRuleThemStill](https://github.com/stealthsploit/OneRuleToRuleThemStill)
 
-## Help
+## Tips and Tricks
 
 ```bash
 # Determine type of hash for '-m' hashcat option.
 echo "$hash" | hashid
+
+# Crack with hashcat using masks (hashcat --help)
+hashcat.exe $hash ?u?l?H?h?a?s?b?d
 ```
