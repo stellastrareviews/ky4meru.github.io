@@ -100,6 +100,10 @@ route print
 # Get listening ports (-a: active connections, -n: disable name resolution, -o: PID)
 netstat -ano
 
+# Get services
+Get-Service
+sc query
+
 # Get running processes
 Get-Process
 ps
