@@ -28,21 +28,27 @@ Google Dorking (or Google Hacking) is a way of using Google Search engine to fin
 ## Exploit
 
 ```bash
-# Limit search results to the DOMAIN
-site:<$DOMAIN>
+# Limit search results to the domain.
+site:$domain
 
-# Limit search results to specific file TYPE (ex: filetype:txt)
-filetype:<$TYPE>
+# Limit search results to specific file type (ex: filetype:txt).
+filetype:$type
 
-# Limit search results to specific extension (ex: ext:py, ext:xml, etc.)
-ext:<$EXTENSION>
+# Limit search results to specific extension (ex: ext:py, ext:xml, etc.).
+ext:$extension
 
-# Limit search results to pages that contain "MULTIPLE WORDS" in the title
-intitle:"$MULTIPLE_WORDS"
+# Limit search results to pages that contain "word" in the title.
+intitle:$word
 
-# You can exclude with "-" as below
-# Search pages on fruits.com containing "Love Fruits" in the title, excluding xml pages
-site:cars.com -filetype:xml intitle:"Love cars"
+# Limit search resulsts to pages that contains "word" in the content.
+intext:$word
+
+# Limit search resulsts to pages that contains "word" in the URL.
+inurl:$word
+
+# You can exclude with "-" as below.
+# Search pages on cars.com containing "Peugeot 4ever" in the title, excluding xml pages.
+site:cars.com -filetype:xml intitle:"Peugeot 4ever"
 ```
 
 ## Useful links
