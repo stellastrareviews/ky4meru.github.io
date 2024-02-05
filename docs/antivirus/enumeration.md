@@ -38,6 +38,9 @@ Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntivirusProduct
 
 # Check Windows Defender status.
 Get-Service WinDefend
+
+# Manually looking for software in running services.
+Get-Service | Select-Object -Property * | Select-String SentinelOne
 ```
 
 You can also use [EICAR anti malware testfile](https://www.eicar.org/download-anti-malware-testfile). Most of market products are designed to trigger this harmless file. Just download it, drag and drop on the targeted host (Windows or Linux) and wait to see if something happen (file is deleted, alert is triggered, etc).
