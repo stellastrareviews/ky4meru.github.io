@@ -72,6 +72,56 @@ With [SharpHound](https://github.com/BloodHoundAD/SharpHound).
 .\PingCastle.exe --healthcheck --server $domain --user $username --password $password
 ```
 
+### PowerView and SharpView
+
+PowerView from [PowerSploit](https://github.com/PowerShellMafia/PowerSploit/) framework is a PowerShell module that provides many buitins to enumerate an Active Directory domain.
+
+```powershell
+# Using PowerView.
+powershell -ep bypass
+Import=Module ./PowerView.ps1
+Get-NetDomain
+Get-NetUser
+Get-LocalUser
+Get-LocalGroup
+Get-NetUser | select cn,pwdlastset,lastlogon
+Get-NetGroup | select cn
+Get-NetComputer | select operatingsystem,dnshostname
+Find-LocalAdminAccess
+Get-NetSession -ComputerName $target -Verbose
+setspn -L $username
+Get-NetUser -SPN | select samaccountname,serviceprincipalname
+Find-DomainShare -CheckShareAccess
+Find-InterestingDomainShareFile -Include *.doc*, *.ppt*, *.xls*
+```
+
+[SharpView](https://github.com/tevora-threat/SharpView) is a .NET port for PowerView, with the same features.
+
+```powershell
+.\SharpView.exe Get-DomainController -Domain $domain
+.\SharView.exe $command $options
+```
+
+### ADSearch
+
+[ADSearch](https://github.com/tomcarver16/ADSearch) allows to perform custom LDAP queries.
+
+```powershell
+.\ADSearch.exe --search "$ldap_filter"
+```
+
+### ADRecon
+
+[ADRecon](https://github.com/adrecon/ADRecon) will do a quick enumeration of basic information about an Active Directory domain.
+
+```powershell
+# From a domain joined computer.
+.\ADRecon.ps1
+
+# From a workgroup computer.
+.\ADRecon.ps1 -DomainController $dc_ip -Credential $domain\$username
+```
+
 ## Manual enumeration 
 
 ```powershell
@@ -105,22 +155,6 @@ function LDAPSearch {
 powershep -ep bypass
 Import-Module ./ldapsearch.ps1
 LDAPSearch -LDAPQuery "$ldap_filter"
-
-# Using PowerView (https://powersploit.readthedocs.io/en/latest/Recon/)
-powershell -ep bypass
-Import=Module ./PowerView.ps1
-Get-NetDomain
-Get-NetUser
-Get-LocalUser
-Get-LocalGroup
-Get-NetUser | select cn,pwdlastset,lastlogon
-Get-NetGroup | select cn
-Get-NetComputer | select operatingsystem,dnshostname
-Find-LocalAdminAccess
-Get-NetSession -ComputerName $target -Verbose
-setspn -L $username
-Get-NetUser -SPN | select samaccountname,serviceprincipalname
-Find-DomainShare
 ```
 
 ## Recommentations
