@@ -19,25 +19,62 @@ permalink: /windows/enumeration/
 
 ## Automated enumeration
 
-```bash
-# Using WinPEAS
-winPEAS.exe
+### WinPwn
 
-# Using Seatbelt locally
+Using [WinPwn](https://github.com/S3cur3Th1sSh1t/WinPwn).
+
+```powershell
+Import-Module .\WinPwn.ps1
+```
+
+### WinPEAS
+
+Using [WinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/winPEAS).
+
+```powershell
+.\winPEAS.exe
+.\winPEAS.ps1
+```
+### Seatbelt
+
+Using [Seatbelt](https://github.com/GhostPack/Seatbelt).
+
+```powershell
+# Using Seatbelt locally.
 Seatbelt.exe -group=all -full -outfile="C:\Temp\out.txt"
 
-# Using Seatbelt remotely
+# Using Seatbelt remotely.
 Seatbelt.exe -group=system-computername=$target -username=$domain\$username -password="$password"
+```
 
-# Using JAWS
+### JAWS
+
+Using [JAWS](https://github.com/411Hall/JAWS).
+
+```powershell
 powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAWS-Enum.txt
+```
 
-# Using WesNG
-systeminfo > systeminfo.out
+### Wes-NG
+
+Using [Wes-NG](https://github.com/bitsadmin/wesng).
+
+```powershell
+systeminfo.exe > systeminfo.out
 wes.py systeminfo.out
+```
 
-# Using Enum4Linux
-enum4linux-ng $target -u $username -p $password
+### Sherlock and Watson
+
+Using [Sherlock](https://github.com/rasta-mouse/Sherlock) and its successor [Watson](https://github.com/rasta-mouse/Watson).
+
+```powershell
+# With Sherlock.
+Import-Module .\Sherlock.ps1
+Find-MS10092
+
+# With Watson.
+.\Watson.exe
 ```
 
 ## Manual enumeration
@@ -65,6 +102,7 @@ netstat -ano
 
 # Get running processes
 Get-Process
+ps
 
 # Get installed applications (32-bits then 64-bits)
 Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
