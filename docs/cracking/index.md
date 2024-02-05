@@ -25,8 +25,9 @@ has_toc: false
 
 ## Useful links
 
-* [Rule-based Attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack)
-* [OneRuleToRuleThemStill](https://github.com/stealthsploit/OneRuleToRuleThemStill)
+* [Kwprocessor](https://github.com/hashcat/kwprocessor) to generate key-walk passwords.
+* [Rule-based Attack](https://hashcat.net/wiki/doku.php?id=rule_based_attack) to create your own cracking rules.
+* [OneRuleToRuleThemStill](https://github.com/stealthsploit/OneRuleToRuleThemStill) of the best rule.
 
 ## Tips and Tricks
 
