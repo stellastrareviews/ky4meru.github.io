@@ -35,6 +35,12 @@ nslookup -type=txt _dmarc.$domain
 
 If you get something like `"DMARC1; p=none; ..."` as output, it means DMARC DNS entry is correctly published. Otherwise, you can abuse the domain to perform email spoofing and phishing.
 
+You can automatically check if domains can be spoofed based on DMARC and SPF using [Spoofy](https://github.com/MattKeeley/Spoofy).
+
+```bash
+./spoofy.py -d $domain -o stdout
+```
+
 ## Useful links
 
 * [Dmarcian](https://dmarcian.com/fr/dmarc-inspector/) to inspect DMARC record online.
