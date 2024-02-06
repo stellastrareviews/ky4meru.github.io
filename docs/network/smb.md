@@ -53,6 +53,9 @@ smbmap -u 'guest' -p '' -P 445 -H $target
 # Using smbclient as anonymous and guest.
 smbclient -U'%' -L //$target
 smbclient -U'guest%' -L //$target
+
+# On a Windows computer, list currently used pipes.
+ls \\.\pipe\
 ```
 
 ## Useful links
