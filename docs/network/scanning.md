@@ -36,7 +36,7 @@ nc -nv -w 1 [-u] -z $target $ports
 ```bash
 # Get open ports on target.
 # Add -Pn for ping probe if needed.
-ports=$(nmap -p- --min-rate=1000 -T4 $target | grep ^[0-9] | cut -d '/' -f1 | tr '\n' ',' | sed s/,$//)
+ports=$(nmap -p- --min-rate=1000 -T4 $target | grep "^[0-9]" | cut -d '/' -f1 | tr '\n' ',' | sed s/,$//)
 
 # Get services running on open ports.
 nmap -sC -sV $target -p $ports -oG nmap.out -v
