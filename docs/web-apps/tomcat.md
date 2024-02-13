@@ -21,8 +21,6 @@ permalink: /webapps/tomcat/
 
 Apache Tomcat is a web server that allows to depoy and host Java applications. Administrators connect on the Tomcat's manager panel to configure applications. This administration page is protected by an authentication form. Nevertheless, default credentials are often in use. You can then take advantage of this administration access to deploy a reverse shell on the Apache Tomcat server and then get an initial foothold.
 
-
-
 ## Prerequisites
 
 - Target must be an Apache Tomcat server with manager panel activated, protected with default credentials.
@@ -50,7 +48,7 @@ apachetomcatscanner -tt $target -tp $ports
 
 Once authenticated on the manager panel, you are now able to deploy `.war` files. We can take advantage of this feature by deploying a webshell on the server, getting an initial foothold on it.
 
-To do so, use this [GitHub repository](https://github.com/p0dalirius/Tomcat-webshell-application). When to webshell is deployed, you can use `console.py` script to get an interactive shell.
+To do so, use [Tomcat Webshell Application](https://github.com/p0dalirius/Tomcat-webshell-application). When the webshell is deployed, you can use `console.py` script to get an interactive shell.
 
 ```bash
 # Get an interactive shell.
