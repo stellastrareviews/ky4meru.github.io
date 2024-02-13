@@ -39,7 +39,7 @@ nc -nv -w 1 [-u] -z $target $ports
 ports=$(nmap -p- --min-rate=1000 -T4 $target | grep "^[0-9]" | cut -d '/' -f1 | tr '\n' ',' | sed s/,$//)
 
 # Get services running on open ports.
-nmap -sC -sV $target -p $ports -oG nmap.out -v
+nmap -sC -sV $target -p $ports -oN nmap.out -v
 
 # Get fingerprint of service running on web port.
 sudo nmap -p $ports --script=http-enum $target
