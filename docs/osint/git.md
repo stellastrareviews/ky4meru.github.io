@@ -31,10 +31,7 @@ You can do it automatically...
 
 ```bash
 # ...using gitleaks.
-gitleaks -v -r=$target
-
-# ...using gitrob (to avoid, it's no more maintained).
-gitrob $target
+gitleaks detect -v -s $path
 ```
 
 Or manually using following links.
