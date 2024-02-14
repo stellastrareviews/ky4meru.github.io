@@ -19,7 +19,7 @@ permalink: /windows/bluekeep/
 
 ## Prerequisites
 
-- Windows 7 SP1 or 2008 R2 domain computer.
+- Target is a Windows host with RDP port opened (3389 by default).
 
 ## Exploit
 
