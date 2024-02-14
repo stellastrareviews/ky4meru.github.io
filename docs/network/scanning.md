@@ -34,12 +34,10 @@ nc -nv -w 1 [-u] -z $target $ports
 > Don't forget to use `-sS` option in every nmap command to be more stealthy.
 
 ```bash
-# Get open ports on target.
-# Add -Pn for ping probe if needed.
+# Perform a complete scan. Add -Pn for ping probe if needed.
 ports=$(nmap -p- --min-rate=1000 -T4 $target | grep "^[0-9]" | cut -d '/' -f1 | tr '\n' ',' | sed s/,$//)
-
-# Get services running on open ports.
-nmap -sC -sV $target -p $ports -oN nmap.out -v
+nmap --min-rate=1000 -T4 --version-all -sV $target -p $ports -oN nmap.tcp --script default,auth,discovery,vuln -v
+sudo nmap --min-rate=1000 -T4 -sU --top-ports 10000 $target -oN nmap.udp -v
 
 # Get fingerprint of service running on web port.
 sudo nmap -p $ports --script=http-enum $target
@@ -72,6 +70,14 @@ Test-NetConnection $target -Port $port
 
 # For 1 to N ports.
 1..$port | % {echo ((New-Object Net.Sockets.TcpClient).Connect("$target", $_)) "TCP port $_ is open"} 2>$null
+```
+
+## Naabu
+
+If you are tunneling with [Chisel](/network/chisel/), you might facing issues performing port scanning through your proxy with `nmap`. Alternatively, you can use [Naabu](https://github.com/projectdiscovery/naabu).
+
+```bash
+naabu -rate 500 -c 10 -s connect -p  -  -host $target -proxy 127.0.0.1:1080
 ```
 
 # Useful links
