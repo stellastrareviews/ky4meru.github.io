@@ -17,6 +17,9 @@ permalink: /windows/bluekeep/
 
 ---
 
+{: .warning }
+> BlueKeep exploit is not stable and might cause a **crash** of the target.
+
 ## Prerequisites
 
 - Target is a Windows host with RDP port opened (3389 by default).
