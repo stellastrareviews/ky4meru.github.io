@@ -19,6 +19,8 @@ permalink: /network/chisel/
 
 ## Exploit
 
+Server and client can be both started with [Chisel](https://github.com/jpillora/chisel).
+
 ```bash
 # Start chisel server on your Kali.
 chisel server --port $lport --reverse
@@ -32,3 +34,6 @@ socks5 127.0.0.1 1080
 # Create a proxyfied ssh tunnel through the chisel client to your target.
 ssh -o ProxyCommand="ncat --proxy-type socks5 --proxy 127.0.0.1:$socks_port %h %p" $username@$target
 ```
+
+{: .important }
+> If you want to perform port scanning through port tunneling, you should consider using [Naabu](/network/scanning/#Naabu).
