@@ -64,7 +64,13 @@ cat out.xml | aquatone -nmap -out ./aquatone
 
 ## PowerShell
 
+Scanning ports from a Windows host can be tough, especially if you don't have any tool at your disposal. Consider using [Minimalistic Offensive Security Tools](https://github.com/InfosecMatter/Minimalistic-offensive-security-tools) TCP and UDP port scanner PowerShell scripts.
+
 ```bash
+# With Minimalistic Offensive Security Tools scripts.
+.\portscantcp.ps1 $target ($ports)
+.\portscanudp.ps1 $target ($ports)
+
 # For one port only.
 Test-NetConnection $target -Port $port
 
