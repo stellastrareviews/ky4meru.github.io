@@ -23,12 +23,6 @@ permalink: /webapps/fuzzing/
 # Simple usage.
 gobuster dir -u http://$target -w $wordlist
 
-# For files.
-gobuster dir -u http://$target/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-files-lowercase.txt
-
-# For directories.
-gobuster dir -u http://$target/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-large-directories-lowercase.txt
-
-# For CGIs.
-gobuster dir -u http://$target/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/CGI-XPlatform.fuzz.txt
+# For a complete scan.
+gobuster dir -u http://$target/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -x $type
 ```
