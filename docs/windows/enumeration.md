@@ -19,6 +19,10 @@ permalink: /windows/enumeration/
 
 ## Automated enumeration
 
+
+{: .warning }
+> Don't forget to take a look at [Antivirus Enumeration](/antivirus/enumeration/) page to list active antivirus and EDRs on the Windows host before dropping any tool to avoid being detected! Otherwise, take your chance with [Manual Enumeration](/windows/enumeration/#manual-enumeration).
+
 ### WinPwn
 
 Using [WinPwn](https://github.com/S3cur3Th1sSh1t/WinPwn).
@@ -78,8 +82,6 @@ Find-MS10092
 ```
 
 ## Manual enumeration
-
-Don't forget to take a loot at [Antivirus Enumeration](/antivirus/enumeration/) page to list active antivirus and EDRs on the Windows host.
 
 ```bash
 # Get groups of current logged on user
