@@ -25,11 +25,13 @@ has_toc: false
 - [Fuzzing](/webapps/fuzzing/)
 - [Local File Inclusion](/webapps/lfi/)
 - [SQL Injection](/webapps/sqli/)
+- [SSL/TLS Scan](/webapps/tls/)
 
 ## Specific applications
 
 - [Apache Tomcat](/webapps/tomcat/)
 - [WordPress](/webapps/wordpress/)
+- [Apache Commons Text - Text4Shell [CVE-2022-42889]](/webapps/text4shell/)
 
 ## Useful links
 
