@@ -30,4 +30,5 @@ Once you get a low privileged access on a Linux target, you can perform followin
 - [Kernel Module Abuse](/linux/kernel/)
 - [Passwd Abuse](/linux/passwd/)
 - [Setuid Capabilities](/linux/setuid/)
-- [Sudo Abuse](/linux/sudo)
+- [Sudo Abuse](/linux/sudo/)
+- [Wildcards Abuse](/linux/wildcards/)
