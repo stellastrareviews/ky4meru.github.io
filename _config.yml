@@ -28,3 +28,4 @@ gh_edit_branch: "main"
 gh_edit_view_mode: "tree"
 
 aux_links_new_tab: true
+nav_external_links_new_tab: true
