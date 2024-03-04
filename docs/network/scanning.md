@@ -86,7 +86,7 @@ If you are tunneling with [Chisel](/network/chisel/), you might facing issues pe
 naabu -rate 500 -c 10 -s connect -p  -  -host $target -proxy 127.0.0.1:1080
 ```
 
-# Useful links
+## Useful links
 
 - [Gowitness](https://github.com/sensepost/gowitness) for an alternative to Aquatone.
 - [RustScan](https://github.com/RustScan/RustScan) for another port scanner.
