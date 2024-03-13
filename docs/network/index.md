@@ -21,9 +21,13 @@ has_toc: false
 ## Recon
 
 - [Ports Scanning](/network/scanning/)
+- [Subdomains Enumeration](/network/subdomains/)
+
+## Specific ports
+
 - [SMB Enumeration](/network/smb/)
 - [SMTP Enumeration](/network/smtp/)
-- [Subdomains Enumeration](/network/subdomains/)
+- [SNMP Enumeration](/network/snmp/)
 
 ## Exploits
 
