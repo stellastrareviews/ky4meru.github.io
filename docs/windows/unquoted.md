@@ -40,8 +40,15 @@ First, you need to identified services with unquoted paths that could be exploit
 # Enumerate service paths using wmic.
 wmic service get name, pathname
 
-# Enumerate services using native PowerShell.
-Get-CimInstance -ClassName win32_service | Select-Object Name, PathName
+# Enumerate running services using native PowerShell.
+Get-CimInstance -ClassName win32_service | Select-Object Name, State, PathName | Where-Object {$ç.State -like 'Running'}
+```
+
+It can also be achieved by tools such as [SharpUp](https://github.com/GhostPack/SharpUp) or [WinPEAS](https://github.com/carlospolop/PEASS-ng).
+
+```powershell
+.\SharpUp.exe audit UnquotedServicePath
+.\WinPEAS.exe
 ```
 
 Once identified, you need to check if you have the correct permissions to drop a payload in either of possible paths.
