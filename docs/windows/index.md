@@ -45,6 +45,7 @@ More privilege escalation exploits are be possible if your target is joined to a
 ## Lateralization
 
 - [DCOM Abuse](/windows/abuse/)
+- [Data Protection API Abuse](/windows/dpapi/)
 - [PSExec Abuse](/windows/psexec/)
 - [WinRM Abuse](/windows/winrm/)
 
