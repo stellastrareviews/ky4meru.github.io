@@ -48,6 +48,7 @@ Once you get either a low privileged domain account or an access to a domain joi
 - [DCSync Attack](/ad/dcsync/)
 - [Golden Tickets](/ad/golden/)
 - [Kerberoasting](/ad/kerberoasting/)
+- [LAPS Abuse](/ad/laps/)
 - [NoPac [CVE-2021-42278] & [CVE-2021-42287]](/ad/nopac/)
 - [PetitPotam [CVE-2022-26925]](/ad/petitpotam/)
 - [Pre Windows 2000 Compatibility Abuse](/ad/compatibility/)
