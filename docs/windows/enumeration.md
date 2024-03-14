@@ -19,7 +19,6 @@ permalink: /windows/enumeration/
 
 ## Automated enumeration
 
-
 {: .warning }
 > Don't forget to take a look at [Antivirus Enumeration](/antivirus/enumeration/) page to list active antivirus and EDRs on the Windows host before dropping any tool to avoid being detected! Otherwise, take your chance with [Manual Enumeration](/windows/enumeration/#manual-enumeration).
 
@@ -83,47 +82,124 @@ Find-MS10092
 
 ## Manual enumeration
 
-```bash
-# Get groups of current logged on user
-whoami /groups
+This section references who to manually enumerate a Windows host using one or more of the following methods (in the order):
+* Using Windows builtins that can be invoked via `cmd.exe`.
+* Using native PowerShell.
+* Using - *your best friend* - [PowerView](https://github.com/PowerShellMafia/PowerSploit/).
 
-# Get privileges of current logged on user
-whoami /priv
+### AppLocker
 
-# Get system information
-systeminfo
+```powershell
+reg query "HKLM\Software\Policies\Microsoft\Windows\SrpV2"
+Get-AppLockerPolicy -Effective -XML
+Get-AppLockerFileInformation | Format-List
+```
 
-# Get network configuratio
-ipconfig /all
+### Environment variables
 
-# Get routing table
-route print
+```powershell
+set
+Get-ChildItem -Path Env:
+```
 
-# Get listening ports (-a: active connections, -n: disable name resolution, -o: PID)
-netstat -ano
+### Files
 
-# Get services
-Get-Service
-sc query
-
-# Get running processes
-Get-Process
-ps
-
-# Get installed applications (32-bits then 64-bits)
-Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
-Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
-
-# Search for useful files that might contains sensitive information
+```powershell
+# Search for useful files that might contains sensitive information.
 Get-ChildItem -Path C:\Users\$username\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
 
-# Get history of PowerShell
-(Get-PSReadlineOption).HistorySavePath
-type <PATH>
+# Search for KDBX database.
+Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
+```
 
-# Get AppLocker enforced policy.
-Get-AppLockerPolicy -Effective -XML
+### Installed softwares
 
-# Get environment variables
-Get-Children -Path Env:
+```powershell
+reg query "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\"
+reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\"
+Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+```
+
+### LAPS
+
+```powershell
+dir "C:\Program Files\LAPS\CSE\"
+Get-DomainGPO | ? { $_.DisplayName -like "*laps*" } | select DisplayName, Name, GPCFileSysPath | Format-List
+```
+
+### Network
+
+```powershell
+# Get network configuration.
+ipconfig /all
+
+# Get routing table.
+route print
+
+# Get listening ports (-a: active connections, -n: disable name resolution, -o: PID).
+netstat -ano
+```
+
+### PowerShell history
+
+Beware, sometimes the history file has another name than `ConsoleHost_history.txt`.
+
+```powershell
+dir %APPDATA%\Microsoft\Windows\Powershell\PSReadLine\
+type %APPDATA%\Microsoft\Windows\Powershell\PSReadLine\ConsoleHost_history.txt
+$(Get-PSReadlineOption).HistorySavePath
+Get-Content -Path $Env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+```
+
+### Processes
+
+```powershell
+# List running processes.
+tasklist /FI "STATUS eq RUNNING"
+wmic process get ProcessID,ExecutablePath
+Get-Process
+ps
+```
+
+### Services
+
+```powershell
+# List all services, including stopped ones.
+sc query state= all
+Get-Service
+Get-CimInstance -ClassName win32_service | Where-Object {$_.State -like "Running"}
+
+# List running services.
+sc query
+Get-Service | Where-Object {$_.Status -eq "Running"}
+Get-CimInstance -ClassName win32_service | Where-Object {$_.State -like "Running"}
+
+# Get a specific service.
+sc query $ServiceName
+Get-Service $ServiceName
+Get-CimInstance -ClassName win32_service | Where-Object {$_.Name -like "$ServiceName"}
+
+# Get executable name executed by a service.
+tasklist /fi "SERVICES eq $ServiceName"
+
+# Get full path of an executable executed by a service.
+wmic process where "name='$ExecutableName'" get ExecutablePath
+```
+
+### System
+
+```powershell
+systeminfo
+Get-ComputerInfo
+```
+
+### Users
+
+```powershell
+# Get info about logged on user.
+whoami /all
+
+# Get info about a local user.
+net user $username
 ```

