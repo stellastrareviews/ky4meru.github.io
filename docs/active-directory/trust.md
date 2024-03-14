@@ -23,7 +23,7 @@ Let's assume a trust relationship between two domains `A` and `B` being `A trust
 
 ## Prerequisites
 
-* Being Domain Admin in a domain involved in a trust relationship.
+* Being Domain Admin in a domain involved in a [trust relationship](/ad/enumeration/#trust-relationships).
 
 ## Exploit
 

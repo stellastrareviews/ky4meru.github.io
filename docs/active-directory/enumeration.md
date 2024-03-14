@@ -93,6 +93,7 @@ setspn -L $username
 Get-NetUser -SPN | select samaccountname,serviceprincipalname
 Find-DomainShare -CheckShareAccess
 Find-InterestingDomainShareFile -Include *.doc*, *.ppt*, *.xls*
+Get-DomainGPO -Domain dev-studio.com | ? { $_.DisplayName -like "*AppLocker*" } | select displayname, gpcfilesyspath
 ```
 
 [SharpView](https://github.com/tevora-threat/SharpView) is a .NET port for PowerView, with the same features.
@@ -124,20 +125,16 @@ Find-InterestingDomainShareFile -Include *.doc*, *.ppt*, *.xls*
 
 ## Manual enumeration 
 
+This section references who to manually enumerate a Windows host using one or more of the following methods (in the order):
+* Using Windows builtins that can be invoked via `cmd.exe`.
+* Using native PowerShell.
+* Using [ActiveDirectory](https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) PowerShell module.
+* Using [ADSearch](https://github.com/tomcarver16/ADSearch).
+* Using - *your best friend* - [PowerView](https://github.com/PowerShellMafia/PowerSploit/).
+
+### Custom LDAP search
+
 ```powershell
-# Using Net.exe
-net user /domain
-net user
-net user $username /domain
-net group /domain
-net localgroup
-net group $group [/domain]
-net accounts
-
-# Using ActiveDirectory PowerShell module.
-Get-ADGroupMember 'domain admins' | select samaccountname
-Get-ADUser -Filter {PasswordExpired -eq $True} -Properties PasswordLastSet, PasswordExpired, PasswordNeverExpires | Sort-Object Name
-
 # In a PowerShell file...
 function LDAPSearch {
     param (
@@ -156,6 +153,31 @@ powershep -ep bypass
 Import-Module ./ldapsearch.ps1
 LDAPSearch -LDAPQuery "$ldap_filter"
 ```
+
+### Trust relationships
+
+If you discover trust relationships, you could [abuse](/ad/trust/) them to lateralize on trusted and/or trusting domains.
+
+```powershell
+.\ADSearch.exe --search "(objectCategory=trustedDomain)" --domain $domain --attributes distinguishedName,name,flatName,trustDirection
+Get-DomainTrust -Domain $domain
+```
+
+```powershell
+# Using Net.exe
+net user /domain
+net user
+net user $username /domain
+net group /domain
+net localgroup
+net group $group [/domain]
+net accounts
+
+# Using ActiveDirectory PowerShell module.
+Get-ADGroupMember 'domain admins' | select samaccountname
+Get-ADUser -Filter {PasswordExpired -eq $True} -Properties PasswordLastSet, PasswordExpired, PasswordNeverExpires | Sort-Object Name
+
+
 
 ## Recommentations
 
