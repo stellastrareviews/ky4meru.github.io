@@ -51,6 +51,7 @@ Once you get either a low privileged domain account or an access to a domain joi
 - [Diamond Tickets](/ad/diamond/)
 - [Forged Certificates](/ad/forgedcert/)
 - [Golden Tickets](/ad/golden/)
+- [GPO Abuse](/ad/gpo/)
 - [Kerberoasting](/ad/kerberoasting/)
 - [LAPS Abuse](/ad/laps/)
 - [NoPac [CVE-2021-42278] & [CVE-2021-42287]](/ad/nopac/)
