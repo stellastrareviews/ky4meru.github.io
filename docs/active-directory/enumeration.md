@@ -80,23 +80,9 @@ With [SharpHound](https://github.com/BloodHoundAD/SharpHound).
 PowerView from [PowerSploit](https://github.com/PowerShellMafia/PowerSploit/) framework is a PowerShell module that provides many buitins to enumerate an Active Directory domain.
 
 ```powershell
-# Using PowerView.
 powershell -ep bypass
 Import=Module ./PowerView.ps1
-Get-NetDomain
-Get-NetUser
-Get-LocalUser
-Get-LocalGroup
-Get-NetUser | select cn,pwdlastset,lastlogon
-Get-NetGroup | select cn
-Get-NetComputer | select operatingsystem,dnshostname
-Find-LocalAdminAccess
-Get-NetSession -ComputerName $target -Verbose
-setspn -L $username
-Get-NetUser -SPN | select samaccountname,serviceprincipalname
-Find-DomainShare -CheckShareAccess
-Find-InterestingDomainShareFile -Include *.doc*, *.ppt*, *.xls*
-Get-DomainGPO -Domain dev-studio.com | ? { $_.DisplayName -like "*AppLocker*" } | select displayname, gpcfilesyspath
+Get-DomainController -Domain $domain
 ```
 
 [SharpView](https://github.com/tevora-threat/SharpView) is a .NET port for PowerView, with the same features.
@@ -217,6 +203,8 @@ If you discover trust relationships, you could [abuse](/ad/trust/) them to later
 .\ADSearch.exe --search "(objectCategory=trustedDomain)" --domain $domain --attributes distinguishedName,name,flatName,trustDirection
 Get-DomainTrust -Domain $domain
 ```
+
+### Users
 
 ```powershell
 # Using Net.exe
