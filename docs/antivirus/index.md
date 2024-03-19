@@ -18,10 +18,11 @@ has_toc: false
 
 ---
 
-## Enumeration
-
-- [AV & EDR Enumeration](/antivirus/enumeration/)
+When you gain access to a Windows host, you should [enumerate antivirus and EDRs](/antivirus/enumeration/) before using any tool to avoid being detected, even blocked.
 
 ## Bypass
 
-- [AV & EDR Bypass](/antivirus/bypass/)
+If antivirus and EDRs are running on the target host, check at following to try bypassing them.
+
+- [Obfuscation](/antivirus/obfuscation/)
+- [Windows Defender](/antivirus/windefend/)

@@ -1,12 +1,12 @@
 ---
 layout: default
-title: AV & EDR Bypass
+title: Obfuscation
 parent: Antivirus
 nav_order: 1
-permalink: /antivirus/bypass/
+permalink: /antivirus/obfuscation/
 ---
 
-# AV & EDR Bypass
+# Obfuscation
 {: .no_toc }
 
 ## Table of contents
@@ -30,6 +30,17 @@ permalink: /antivirus/bypass/
 - [Nimcrypt2](https://github.com/icyguider/Nimcrypt2)
 - [Pyramid](https://github.com/naksyn/Pyramid)
 
-## Useful links
+## Tips and Tricks
 
-* [VirusTotal](https://www.virustotal.com/gui/home/upload) to check if your malware is detectable.
+To check if a file has the Mark of the Web (MOTW).
+
+```powershell
+Get-Content -Path $file -Stream Zone.Identifier
+```
+
+It exists 5 zones, in trust order:
+0. Local computer
+1. Local intranet
+2. Trusted sites
+3. Internet
+4. Restricted sites

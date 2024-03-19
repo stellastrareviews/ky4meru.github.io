@@ -19,7 +19,7 @@ permalink: /antivirus/enumeration/
 
 ## Vulnerability
 
-TODO: Describe the vulnerability here.
+Once authenticated on a Windows host, even low privileged, you can enumerate running antivirus engines and EDRs.
 
 ## Prerequisites
 
@@ -27,8 +27,7 @@ TODO: Describe the vulnerability here.
 
 ## Exploit
 
-Following commands can help you to enumerate antivirus protections on a Windows host. If it is enabled, refer to [Antivirus Evasion](/antivirus/bypass/) page to try bypassing it.
-
+Following commands can help you to enumerate antivirus protections on a Windows host.
 ```powershell
 # With WMIC through cmd.
 wmic /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntivirusProduct
@@ -36,11 +35,15 @@ wmic /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntivirusProduct
 # With PowerShell.
 Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntivirusProduct
 
-# Check Windows Defender status.
-Get-Service WinDefend
-
 # Manually looking for software in running services.
 Get-Service | Select-Object -Property * | Select-String SentinelOne
+```
+
+If Windows Defender is running, take a look at how to [bypass](/antivirus/windefend/) it.
+
+```powershell
+# Check Windows Defender status.
+Get-Service WinDefend
 ```
 
 You can also use [EICAR anti malware testfile](https://www.eicar.org/download-anti-malware-testfile). Most of market products are designed to trigger this harmless file. Just download it, drag and drop on the targeted host (Windows or Linux) and wait to see if something happen (file is deleted, alert is triggered, etc).
@@ -48,7 +51,3 @@ You can also use [EICAR anti malware testfile](https://www.eicar.org/download-an
 ## Useful links
 
 * [EICAR](https://www.eicar.org/): European Institute for Computer Anti-Virus Research.
-
-## Recommendations
-
-- [ ] TODO: List recommendations here.
