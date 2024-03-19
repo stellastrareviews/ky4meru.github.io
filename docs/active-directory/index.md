@@ -44,6 +44,7 @@ You also should take a look at [Windows Initial Foothold](/windows/#without-an-a
 Once you get either a low privileged domain account or an access to a domain joined computer, you can perform following attacks to escalate your privileges locally on domain computers or on the domain itself. You should perform [Active Directory Enumeration](/ad/enumeration/) to get as much information as possible before starting to exploit.
 
 - [AS-REP Roasting](/ad/asreproasting/)
+- [Certificate Services](/ad/certs/)
 - [Constrained Delegation](/ad/constrained/)
 - [DCSync Attack](/ad/dcsync/)
 - [Golden Tickets](/ad/golden/)
