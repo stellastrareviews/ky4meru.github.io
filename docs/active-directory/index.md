@@ -47,6 +47,7 @@ Once you get either a low privileged domain account or an access to a domain joi
 - [Certificate Services](/ad/certs/)
 - [Constrained Delegation](/ad/constrained/)
 - [DCSync Attack](/ad/dcsync/)
+- [Diamond Tickets](/ad/diamond/)
 - [Golden Tickets](/ad/golden/)
 - [Kerberoasting](/ad/kerberoasting/)
 - [LAPS Abuse](/ad/laps/)
