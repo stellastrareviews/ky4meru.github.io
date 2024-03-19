@@ -41,7 +41,8 @@ You know must found the AD CS server to check if the Certificate Authority Web E
 - Network scans.
 - Active Directory enumeration, looking for `ACDS`-like named computers.
 - Fuzzing on `/certsrv/` endpoint.
-- Using `certutil.exe`
+- Using `certutil.exe`.
+- Using [Certify](https://github.com/GhostPack/Certify).
 
 The Certificate Authority Web Enrollment endpoint is accessible by clicking on `Request a certificate`, usually located at `/cert/certrqus.asp`.
 
