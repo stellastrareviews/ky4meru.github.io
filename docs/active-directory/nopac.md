@@ -23,7 +23,7 @@ NoPac relies on two vulnerablies which are:
 * **CVE-2021-42278**: Security Account Manager (SAM) spoofing security bypass vulnerability.
 * **CVE-2021-42287**: privilege escalation vulnerability associated with the Kerberos Privilege Attribute Certificate (PAC).
 
-By default, any domain user can add up to 10 computers in the domain. CVE-2021-42278 consists in adding a new machine account with a **random name** in the domain then replace it with one of the domain controllers omitting the symbol `$` at the end.
+By default, [any domain user can add up to 10 computers in the domain](/ad/quota/). CVE-2021-42278 consists in adding a new machine account with a **random name** in the domain then replace it with one of the domain controllers omitting the symbol `$` at the end.
 
 Then, request a Kerberos TGT for the created account and change its *samAccountName* back to the originally randomly generated. CVE-2021-42287 consists in requesting an access token from the Ticket Granting Server (TGS) with the previous TGT. Since the computer account does not exist in the domain, the TGS will match the closest one and automatically add the symbol `$` at the end.
 
