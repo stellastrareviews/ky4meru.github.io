@@ -134,6 +134,8 @@ This section references who to manually enumerate a Windows host using one or mo
 
 ### AppLocker
 
+If AppLocker is enabled, take a look at some ways to [bypass](/ad/applocker/) it.
+
 ```powershell
 reg query "HKLM\Software\Policies\Microsoft\Windows\SrpV2"
 Get-ChildItem "HKLM:Software\Policies\Microsoft\Windows\SrpV2"
