@@ -21,4 +21,7 @@ has_toc: false
 
 # Contents
 
-* [Microsoft SQL Enumeration](/databases/mssql/enumeration/)
+First of all, you should perform an [enumeration](/databases/mssql/enumeration/) of the Microsoft SQL instance. If you discover interesting things, refer to following attacks to escalate your privileges locally or lateralize on other Microsoft SQL instances.
+
+* [Leverage xp_cmdshell Procedure](/databases/mssql/cmdshell/)
+* [Links Abuse](/databases/mssql/links/)
