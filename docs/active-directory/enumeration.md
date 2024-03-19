@@ -132,6 +132,16 @@ This section references who to manually enumerate a Windows host using one or mo
 * Using [ADSearch](https://github.com/tomcarver16/ADSearch).
 * Using - *your best friend* - [PowerView](https://github.com/PowerShellMafia/PowerSploit/).
 
+### AppLocker
+
+```powershell
+reg query "HKLM\Software\Policies\Microsoft\Windows\SrpV2"
+Get-ChildItem "HKLM:Software\Policies\Microsoft\Windows\SrpV2"
+Get-AppLockerPolicy -Effective -XML
+Get-AppLockerFileInformation | Format-List
+Get-DomainGPO -Domain dev-studio.com | ? { $_.DisplayName -like "*AppLocker*" } | select displayname, gpcfilesyspath
+```
+
 ### Custom LDAP search
 
 ```powershell
@@ -164,6 +174,14 @@ Get-DomainComputer | ? { $_."ms-Mcs-AdmPwdExpirationTime" -ne $null } | select d
 Get-DomainGPO | ? { $_.DisplayName -like "*laps*" } | select DisplayName, Name, GPCFileSysPath | Format-List
 ```
 
+### SCCM
+
+If following commands returns something, take a look at [SCCM Abuse](/ad/sccm/) attack.
+
+```powershell
+Get-WmiObject -Class SMS_Authority -Namespace root\CCM | select Name, CurrentManagementPoint | Format-List
+```
+
 ### Trust relationships
 
 If you discover trust relationships, you could [abuse](/ad/trust/) them to lateralize on trusted and/or trusting domains.
@@ -186,8 +204,7 @@ net accounts
 # Using ActiveDirectory PowerShell module.
 Get-ADGroupMember 'domain admins' | select samaccountname
 Get-ADUser -Filter {PasswordExpired -eq $True} -Properties PasswordLastSet, PasswordExpired, PasswordNeverExpires | Sort-Object Name
-
-
+```
 
 ## Recommentations
 

@@ -55,6 +55,7 @@ Once you get either a low privileged domain account or an access to a domain joi
 - [Pre Windows 2000 Compatibility Abuse](/ad/compatibility/)
 - [PrintNightmare [CVE-2021-1675]](/ad/printnightmare/)
 - [Role-Based Constrained Delegation](/ad/rbconstrained/)
+- [SCCM Abuse](/ad/sccm/)
 - [Shadow Credentials](/ad/shadow/)
 - [SYSVOL Enumeration](/ad/sysvol/)
 - [Unconstrained Delegation](ad/unconstrained/)
