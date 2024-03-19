@@ -17,6 +17,9 @@ permalink: /ad/enumeration/
 
 ---
 
+{: .important }
+> At this point, you might be authenticated on a domain joined computer - *via RDP, WinRM or whatever* so **do not forget** to [enumerate Windows](/windows/enumeration/) as well.
+
 ## Vulnerability
 
 Active Directory enumeration is not a vulnerability by itself. Actually, it is more like a feature because Active Directory is built this way. Once you are authenticated on a domain, you are able to list all Active Directory objects and their relations. It is a very useful way to discover how to escalate you privileges by better understanding how the domain is organized.
