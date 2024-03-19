@@ -67,6 +67,7 @@ You also should take a look at [Windows Privilege Escalation](/windows/#privileg
 - [Net-NTLMv2 Relay](/ad/netntlmv2relay/)
 - [Overpass the Hash](/ad/overpassthehash/)
 - [Pass the Ticket](/ad/passtheticket/)
+- [Service Name Abuse](/ad/servicename/)
 - [Silver Tickets](/ad/silver/)
 - [Trust Relationship Abuse](/ad/trust/)
 
