@@ -87,14 +87,6 @@ This section references who to manually enumerate a Windows host using one or mo
 * Using native PowerShell.
 * Using - *your best friend* - [PowerView](https://github.com/PowerShellMafia/PowerSploit/).
 
-### AppLocker
-
-```powershell
-reg query "HKLM\Software\Policies\Microsoft\Windows\SrpV2"
-Get-AppLockerPolicy -Effective -XML
-Get-AppLockerFileInformation | Format-List
-```
-
 ### Environment variables
 
 ```powershell
@@ -119,13 +111,6 @@ reg query "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\
 reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\"
 Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
 Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
-```
-
-### LAPS
-
-```powershell
-dir "C:\Program Files\LAPS\CSE\"
-Get-DomainGPO | ? { $_.DisplayName -like "*laps*" } | select DisplayName, Name, GPCFileSysPath | Format-List
 ```
 
 ### Network
