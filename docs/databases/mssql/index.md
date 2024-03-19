@@ -23,5 +23,6 @@ has_toc: false
 
 First of all, you should perform an [enumeration](/databases/mssql/enumeration/) of the Microsoft SQL instance. If you discover interesting things, refer to following attacks to escalate your privileges locally or lateralize on other Microsoft SQL instances.
 
+* [Data Exfiltration](/databases/mssql/data/)
 * [Leverage xp_cmdshell Procedure](/databases/mssql/cmdshell/)
 * [Links Abuse](/databases/mssql/links/)
