@@ -32,6 +32,7 @@ Before starting to play with following exploits, it is a good idea to recover in
 First thing you want to achive to compromise a domain is to get an initial foothold. To do so, following attacks can be used to gain a domain joined account, either user or computer one. [Web attacks](/webapps/) can also be a good entrypoint on an Active Directory domain.
 
 - [Bruteforce](/ad/bruteforce/)
+- [Email Password Spraying](/ad/email/)
 - [NTLM Relay](/ad/ntlmrelay/)
 - [Password Spraying](/ad/spraying)
 - [Printer Abuse](/ad/printer/)
