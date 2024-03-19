@@ -1,12 +1,13 @@
 ---
 layout: default
-title: Microsoft SQL
-parent: Databases
+title: Microsoft SQL Enumeration
+parent: Microsoft SQL
+grand_parent: Databases
 nav_order: 1
-permalink: /databases/mssql/
+permalink: /databases/mssql/enumeration/
 ---
 
-# Microsoft SQL
+# Microsoft SQL Enumeration
 {: .no_toc }
 
 ## Table of contents
