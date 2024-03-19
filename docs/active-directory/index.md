@@ -53,6 +53,7 @@ Once you get either a low privileged domain account or an access to a domain joi
 - [PetitPotam [CVE-2022-26925]](/ad/petitpotam/)
 - [Pre Windows 2000 Compatibility Abuse](/ad/compatibility/)
 - [PrintNightmare [CVE-2021-1675]](/ad/printnightmare/)
+- [Shadow Credentials](/ad/shadow/)
 - [SYSVOL Enumeration](/ad/sysvol/)
 - [Unconstrained Delegation](ad/unconstrained/)
 
