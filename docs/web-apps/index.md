@@ -21,6 +21,7 @@ has_toc: false
 ## Generic attacks
 
 - [Brute force](/webapps/bruteforce/)
+- [Default Credentials](/webapps/defaultcredentials/)
 - [Directory Transversal](/webapps/transversal/)
 - [Fuzzing](/webapps/fuzzing/)
 - [Local File Inclusion](/webapps/lfi/)
