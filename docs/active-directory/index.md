@@ -36,6 +36,7 @@ First thing you want to achive to compromise a domain is to get an initial footh
 - [NTLM Relay](/ad/ntlmrelay/)
 - [Password Spraying](/ad/spraying)
 - [Printer Abuse](/ad/printer/)
+- [User Spraying](/ad/userspraying/)
 - [Zerologon [CVE-2020-1472]](/ad/zerologon/)
 
 You also should take a look at [Windows Initial Foothold](/windows/#without-an-account) methods.
@@ -71,6 +72,7 @@ You also should take a look at [Windows Privilege Escalation](/windows/#privileg
 
 - [Net-NTLMv2 Relay](/ad/netntlmv2relay/)
 - [Overpass the Hash](/ad/overpassthehash/)
+- [Pass the Hash](/ad/passthehash/)
 - [Pass the Ticket](/ad/passtheticket/)
 - [Service Name Abuse](/ad/servicename/)
 - [Silver Tickets](/ad/silver/)
