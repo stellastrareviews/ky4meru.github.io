@@ -19,7 +19,7 @@ permalink: /ad/compatibility/
 
 ## Vulnerability
 
-Domain joined computers that have the option *Pre Windows 2000 Compatibility* enabled have default credentials which correspond to the computer name without the trailing `$`.
+Domain joined computers that have the option *Pre Windows 2000 Compatibility* enabled have default password which corresponds to the computer name without the trailing `$`.
 
 ```powershell
 # If the computer domain account is...
@@ -31,7 +31,7 @@ computername
 
 ## Prerequisites
 
-- Low privileged domain account.
+- Network route to the domain controller.
 
 ## Exploit
 

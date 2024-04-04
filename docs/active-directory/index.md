@@ -35,6 +35,7 @@ First thing you want to achive to compromise a domain is to get an initial footh
 - [Email Password Spraying](/ad/email/)
 - [NTLM Relay](/ad/ntlmrelay/)
 - [Password Spraying](/ad/spraying)
+- [Pre Windows 2000 Compatibility Abuse](/ad/compatibility/)
 - [Printer Abuse](/ad/printer/)
 - [User Spraying](/ad/userspraying/)
 - [Zerologon [CVE-2020-1472]](/ad/zerologon/)
