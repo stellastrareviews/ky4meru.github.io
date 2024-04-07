@@ -18,10 +18,22 @@ has_toc: false
 
 ---
 
-## Without an account
+## Recon
 
 First, check if the Azure domain exists.
 
 ```bash
-wget https://login.microsoftonline.com/$DOMAIN/.well-known/openid-configuration
+wget https://login.microsoftonline.com/$Domain/.well-known/openid-configuration
 ```
+
+## Without an account
+
+* [Synchronization Credentials Extraction](/azure/sync/)
+
+## Privilege escalation
+
+* [Applications Rights Abuse](/azure/apps/)
+
+## Useful links
+
+- [AzureHound](https://github.com/BloodHoundAD/AzureHound) to enumerate Azure Active Directory.
