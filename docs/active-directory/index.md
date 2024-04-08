@@ -65,7 +65,7 @@ Once you get either a low privileged domain account or an access to a domain joi
 - [S4U2Self Abuse](/ad/s4u2self/)
 - [Shadow Credentials](/ad/shadow/)
 - [SYSVOL Enumeration](/ad/sysvol/)
-- [Unconstrained Delegation](ad/unconstrained/)
+- [Unconstrained Delegation](/ad/unconstrained/)
 
 You also should take a look at [Windows Privilege Escalation](/windows/#privilege-escalation) methods.
 
