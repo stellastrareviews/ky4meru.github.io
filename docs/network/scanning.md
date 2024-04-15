@@ -89,5 +89,6 @@ naabu -rate 500 -c 10 -s connect -p  -  -host $target -proxy 127.0.0.1:1080
 ## Useful links
 
 - [Gowitness](https://github.com/sensepost/gowitness) for an alternative to Aquatone.
+- [WebScreenshot](https://github.com/maaaaz/webscreenshot)  for **again** another alternative to Aquatone.
 - [RustScan](https://github.com/RustScan/RustScan) for another port scanner.
 - [Threader3000](https://github.com/dievus/threader3000) for **again** another port scanner.
