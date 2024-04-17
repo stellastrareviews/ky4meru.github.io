@@ -23,12 +23,13 @@ has_toc: false
 First, check if the Azure domain exists.
 
 ```bash
-wget https://login.microsoftonline.com/$Domain/.well-known/openid-configuration
+wget https://login.microsoftonline.com/$DomainName/.well-known/openid-configuration
 ```
 
 ## Without an account
 
 * [Synchronization Credentials Extraction](/azure/sync/)
+* [User Spraying](/azure/userspraying/)
 
 ## Privilege escalation
 
